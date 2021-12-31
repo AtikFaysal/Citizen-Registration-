@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="contact"
+            type="com.citizen.registration.ui.viewmodel.CitizenRegistrationViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <LinearLayout
+                android:id="@+id/ln_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/phone_number"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:inputType="phone"
+                        android:text="@={contact.Companion.mlPhoneNumber}"
+                        android:textColor="@color/text_color"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/phone_number"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:text="@string/email"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/text_color"
+                        android:text="@={contact.Companion.mlEmail}"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/my_name_bn"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_attachment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_contact"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:text="@string/attachment_en"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_attachment_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:gravity="start"
+                        android:textColor="@color/text_color"
+                        android:text="@={contact.Companion.mlAttachmentEn}"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/attachment_hint_en"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:text="@string/attachment_bn"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_attachment_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60sdp"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="start"
+                        android:background="@drawable/bg_square"
+                        android:text="@={contact.Companion.mlAttachmentBn}"
+                        android:hint="@string/attachment_hint_bn"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                style="@style/RobotoRegular"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@string/btn_preview"
+                android:padding="@dimen/_10sdp"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/ln_attachment"
+                android:background="@drawable/bg_button_square_round_bold"
+                android:textSize="@dimen/_15sdp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

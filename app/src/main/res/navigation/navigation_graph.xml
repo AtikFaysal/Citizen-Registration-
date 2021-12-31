@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.citizen.registration.ui.view.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_dashboard_fragment"
+            app:destination="@id/dashboardFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/loginFragment"
+            app:enterAnim="@anim/animation_slide_in_right"
+            app:exitAnim="@anim/animation_slide_out_left"
+            app:popEnterAnim="@anim/animation_slide_in_left"
+            app:popExitAnim="@anim/animation_slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.citizen.registration.ui.view.DashboardFragment"
+        android:label="Dashboard">
+
+        <action
+            android:id="@+id/action_dashboard_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/dashboardFragment"
+            app:enterAnim="@anim/animation_slide_in_right"
+            app:exitAnim="@anim/animation_slide_out_left"
+            app:popEnterAnim="@anim/animation_slide_in_left"
+            app:popExitAnim="@anim/animation_slide_out_right"/>
+
+        <action
+            android:id="@+id/action_dashboard_to_basicInfoFragment"
+            app:destination="@id/basicInfoFragment"
+            app:enterAnim="@anim/animation_slide_in_right"
+            app:exitAnim="@anim/animation_slide_out_left"
+            app:popEnterAnim="@anim/animation_slide_in_left"
+            app:popExitAnim="@anim/animation_slide_out_right"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/basicInfoFragment"
+        android:name="com.citizen.registration.ui.view.BasicInfoFragment"
+        android:label="Dashboard">
+        <action
+            android:id="@+id/action_basicInfo_to_addressFragment"
+            app:destination="@id/addressFragment"
+            app:enterAnim="@anim/animation_slide_in_right"
+            app:exitAnim="@anim/animation_slide_out_left"
+            app:popEnterAnim="@anim/animation_slide_in_left"
+            app:popExitAnim="@anim/animation_slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.citizen.registration.ui.view.CitizenAddressFragment"
+        android:label="Address">
+        <action
+            android:id="@+id/action_address_to_contactDetailsFragment"
+            app:destination="@id/contactDetailsFragment"
+            app:enterAnim="@anim/animation_slide_in_right"
+            app:exitAnim="@anim/animation_slide_out_left"
+            app:popEnterAnim="@anim/animation_slide_in_left"
+            app:popExitAnim="@anim/animation_slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/contactDetailsFragment"
+        android:name="com.citizen.registration.ui.view.ContactDetailsFragment"
+        android:label="ContactDetailsFragment" />
+
+</navigation>

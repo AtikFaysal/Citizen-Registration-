@@ -1,3 +1,77 @@
 <resources>
     <string name="app_name">Citizen Registration</string>
+
+    <string name="choose">Choose</string>
+
+    <string name="success">Success</string>
+    <string name="error">Error</string>
+    <string name="warning">Warning</string>
+    <string name="info">Info</string>
+    <string name="no_internet">No Internet Connection</string>
+
+    <!-- Warning title -->
+    <string name="no_network_warning">Unable to connect internet, Please check your internet connection.</string>
+
+    <!--    TextView hint text  -->
+    <string name="phone_number">মোবাইল নম্বর</string>
+    <string name="email">ই-মেইল</string>
+    <string name="attachment_en">সংযুক্তি যদি থাকে(ইংরেজিতে)</string>
+    <string name="attachment_bn">সংযুক্তি যদি থাকে(বাংলায়)</string>
+    <string name="attachment_hint_en">Example: Freedom Fighter children, widows, tribal\'s …etc</string>
+    <string name="attachment_hint_bn">উদাহরণঃ মুক্তিযোদ্ধা সন্তান, বিধবা, উপজাতি…ইত্যাদি</string>
+    <string name="password">পাসওয়ার্ড</string>
+    <string name="country_code">(+880)</string>
+    <string name="today">আজকে</string>
+    <string name="last_week">গত সপ্তাহ</string>
+    <string name="total">টোটাল</string>
+    <string name="present_address">বর্তমান ঠিকানা</string>
+    <string name="permanent_address">স্থায়ী ঠিকানা</string>
+
+    <!--    input hint text  -->
+    <string name="enter_phone_number">মোবাইল নম্বর লিখুন</string>
+    <string name="enter_password">পাসওয়ার্ড দিন</string>
+    <string name="holding_no">হোল্ডিং নং লিখুন</string>
+    <string name="holding_no_type">হোল্ডিং নং</string>
+    <string name="nid_title">ন্যাশনাল আইডি নং(ইংরেজিতে)</string>
+    <string name="nid">ন্যাশনাল আইডি নম্বর লিখুন</string>
+    <string name="birth_reg_no_title">জন্ম নিবন্ধন নং(ইংরেজিতে)</string>
+    <string name="birth_reg_no">জন্ম নিবন্ধন নম্বর লিখুন</string>
+    <string name="passport_title">পাসপোর্ট নং(ইংরেজিতে)</string>
+    <string name="dob">জন্ম তারিখ</string>
+    <string name="my_name_en">নাম(ইংরেজিতে)</string>
+    <string name="my_name_bn">নাম(বাংলাতে)</string>
+    <string name="father_name_en">পিতার নাম(ইংরেজিতে)</string>
+    <string name="father_name_bn">পিতার নাম(বাংলাতে)</string>
+    <string name="mother_name_en">মাতার নাম(ইংরেজিতে)</string>
+    <string name="mother_name_bn">মাতার নাম(বাংলাতে)</string>
+
+    <string name="para">পাড়া/মহল্লা</string>
+    <string name="road">রোড/ব্লক/সেক্টর</string>
+    <string name="ward">ওয়ার্ড নং</string>
+    <string name="post_office">পোস্ট অফিস</string>
+    <string name="division">বিভাগ</string>
+    <string name="sub_division">জেলা</string>
+    <string name="district">উপজেলা</string>
+    <string name="sub_district">থানা</string>
+    <string name="bangla">বাংলায়</string>
+    <string name="english">ইংরেজিতে</string>
+
+    <string name="occupation">পেশা</string>
+    <string name="education">শিক্ষাগত যোগ্যতা</string>
+    <string name="religion">ধর্ম</string>
+    <string name="live_in">বাসিন্দা</string>
+    <string name="gender">লিঙ্গ</string>
+    <string name="marital_status">বৈবাহিক অবস্থা</string>
+
+    <!--    Button text  -->
+    <string name="login">লগইন</string>
+    <string name="logout">লগ আউট</string>
+    <string name="btn_add_new">নাগরিক যোগ করুন</string>
+    <string name="btn_next">পরবর্তী</string>
+    <string name="btn_preview">পুনরায় দেখুন</string>
+
+    <!-- Checkbox title -->
+    <string name="remember_me">মনে রাখুন</string>
+    <string name="same_as_present_address">যদি বর্তমান ও স্থায়ী ঠিকানা একই হয় তাহলে টিক মার্ক দিন</string>
+
 </resources>

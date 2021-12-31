@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="login"
+            type="com.citizen.registration.ui.viewmodel.AuthViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:focusableInTouchMode="true">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_app_logo"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/app_logo"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_30sdp"/>
+
+        <LinearLayout
+            android:id="@+id/ln_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_app_logo"
+            android:layout_margin="@dimen/_30sdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:text="@string/phone_number"
+                style="@style/CalibriRegular"
+                android:textColor="@color/text_color"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="center_vertical"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_field"
+                android:padding="@dimen/_5sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_phone_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:src="@drawable/ic_mobile"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_country_code"
+                    style="@style/RobotoRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/iv_phone_icon"
+                    android:gravity="center_vertical"
+                    android:text="@string/country_code"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_12sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_phone_number"
+                    style="@style/CalibriRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/tv_country_code"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/enter_phone_number"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:padding="@dimen/_5sdp"
+                    android:singleLine="true"
+                    android:text="@={login.mlPhone}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    tools:text="1234567890" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:text="@string/password"
+                style="@style/CalibriRegular"
+                android:textColor="@color/text_color"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_gravity="center_vertical"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_field"
+                android:padding="@dimen/_5sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_password_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:src="@drawable/ic_password" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_password"
+                    style="@style/CalibriRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/iv_password_icon"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/enter_password"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:padding="@dimen/_5sdp"
+                    android:singleLine="true"
+                    android:text="@={login.mlPassword}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    tools:text="(+880) 1234567890" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_remember_me"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remember_me"
+                    style="@style/CalibriRegular"
+                    android:gravity="center_vertical|start"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/_12sdp"/>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                style="@style/RobotoRegular"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@string/login"
+                android:padding="@dimen/_10sdp"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_button_square_round_bold"
+                android:textSize="@dimen/_15sdp"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="address"
+            type="com.citizen.registration.ui.viewmodel.CitizenRegistrationViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_present_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_grey"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/present_address"/>
+
+            <LinearLayout
+                android:id="@+id/ln_language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tv_present_address"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:textSize="@dimen/_14sdp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/english"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:gravity="center"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/bangla"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_para"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                app:layout_constraintTop_toBottomOf="@+id/ln_language"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/para"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_para_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:singleLine="true"
+                        android:text="@={address.Companion.mlParaEnPre}"
+                        android:maxLines="1"
+                        android:inputType="textPersonName|textCapWords"
+                        android:textColor="@color/text_color"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/para"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/para"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_para_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={address.Companion.mlParaBnPre}"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/para"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_road"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                app:layout_constraintTop_toBottomOf="@+id/ln_para"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/road"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_road_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:inputType="textPersonName|textCapWords"
+                        android:singleLine="true"
+                        android:text="@={address.Companion.mlRoadEnPre}"
+                        android:maxLines="1"
+                        android:textColor="@color/text_color"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/road"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/road"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_road_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="@={address.Companion.mlRoadBnPre}"
+                        android:maxLines="1"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/road"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_ward"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                app:layout_constraintTop_toBottomOf="@+id/ln_road"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/ward"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_ward_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/ward"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_ward_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_post_office"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                app:layout_constraintTop_toBottomOf="@+id/ln_ward"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/post_office"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_post_office_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:inputType="textPersonName|textCapWords"
+                        android:text="@={address.Companion.mlPostOfficeEnPre}"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:textColor="@color/text_color"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/post_office"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/post_office"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_post_office_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={address.Companion.mlPostOfficeBnPre}"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/post_office"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_division"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                app:layout_constraintTop_toBottomOf="@+id/ln_post_office"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/division"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_division_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/division"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_division_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_sub_division"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                app:layout_constraintTop_toBottomOf="@+id/ln_division"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/sub_division"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_district_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/sub_division"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_district_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                app:layout_constraintTop_toBottomOf="@+id/ln_sub_division"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/district"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_sub_district_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/district"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_sub_district_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_same_as_present"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/same_as_present_address"
+                android:textColor="@color/colorPrimary"
+                style="@style/CalibriRegular"
+                android:layout_marginTop="@dimen/topMargin"
+                app:layout_constraintTop_toBottomOf="@+id/ln_district"
+                android:gravity="center_vertical|start"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/_12sdp"/>
+
+            <LinearLayout
+                android:id="@+id/ln_permanent_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cb_same_as_present"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_permanent_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_grey"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:textSize="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center_horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/cb_same_as_present"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/permanent_address"/>
+
+                <LinearLayout
+                    android:id="@+id/ln_language_bn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_permanent_address"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:textSize="@dimen/_14sdp"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/english"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:gravity="center"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/bangla"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_para_permanent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    app:layout_constraintTop_toBottomOf="@+id/ln_language_bn"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/para"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_para_en_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_14sdp"
+                            android:singleLine="true"
+                            android:text="@={address.Companion.mlParaEnPer}"
+                            android:maxLines="1"
+                            android:inputType="textPersonName|textCapWords"
+                            android:textColor="@color/text_color"
+                            android:background="@drawable/bg_square"
+                            android:hint="@string/para"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/para"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_para_bn_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_14sdp"
+                            android:textColor="@color/text_color"
+                            android:text="@={address.Companion.mlParaBnPer}"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:background="@drawable/bg_square"
+                            android:hint="@string/para"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_road_permanent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    app:layout_constraintTop_toBottomOf="@+id/ln_para_permanent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/road"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_road_en_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="@={address.Companion.mlRoadEnPer}"
+                            android:inputType="textPersonName|textCapWords"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:textColor="@color/text_color"
+                            android:background="@drawable/bg_square"
+                            android:hint="@string/road"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/road"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_road_bn_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_14sdp"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@={address.Companion.mlRoadBnPer}"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:background="@drawable/bg_square"
+                            android:hint="@string/road"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_ward_permanent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    app:layout_constraintTop_toBottomOf="@+id/ln_road_permanent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/ward"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/sp_ward_en_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_30sdp"
+                            android:background="@drawable/bg_square"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/ward"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/sp_ward_bn_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_30sdp"
+                            android:background="@drawable/bg_square"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_post_office_permanent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    app:layout_constraintTop_toBottomOf="@+id/ln_ward_permanent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/post_office"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_post_office_en_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_14sdp"
+                            android:inputType="textPersonName|textCapWords"
+                            android:singleLine="true"
+                            android:text="@={address.Companion.mlPostOfficeEnPer}"
+                            android:maxLines="1"
+                            android:textColor="@color/text_color"
+                            android:background="@drawable/bg_square"
+                            android:hint="@string/post_office"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/post_office"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_post_office_bn_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_14sdp"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:singleLine="true"
+                            android:text="@={address.Companion.mlPostOfficeBnPer}"
+                            android:maxLines="1"
+                            android:background="@drawable/bg_square"
+                            android:hint="@string/post_office"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_division_permanent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    app:layout_constraintTop_toBottomOf="@+id/ln_post_office_permanent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/division"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/sp_division_en_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_30sdp"
+                            android:background="@drawable/bg_square"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/division"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/sp_division_bn_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_30sdp"
+                            android:background="@drawable/bg_square"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_sub_division_permanent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    app:layout_constraintTop_toBottomOf="@+id/ln_division_permanent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/sub_division"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/sp_district_en_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_30sdp"
+                            android:background="@drawable/bg_square"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/sub_division"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/sp_district_bn_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_30sdp"
+                            android:background="@drawable/bg_square"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_district_permanent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    app:layout_constraintTop_toBottomOf="@+id/ln_sub_division_permanent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/district"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/sp_sub_district_en_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_30sdp"
+                            android:background="@drawable/bg_square"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawableEnd="@drawable/ic_required"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="@string/district"/>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/sp_sub_district_bn_permanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/_30sdp"
+                            android:background="@drawable/bg_square"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                style="@style/RobotoRegular"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@string/btn_next"
+                android:padding="@dimen/_10sdp"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/ln_permanent_address"
+                android:background="@drawable/bg_button_square_round_bold"
+                android:textSize="@dimen/_15sdp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
