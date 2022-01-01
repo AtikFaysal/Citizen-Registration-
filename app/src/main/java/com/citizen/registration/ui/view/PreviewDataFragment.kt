@@ -2,7 +2,6 @@ package com.citizen.registration.ui.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -11,7 +10,6 @@ import androidx.navigation.Navigation
 import com.citizen.registration.R
 import com.citizen.registration.core.BaseActivity
 import com.citizen.registration.core.BaseFragment
-import com.citizen.registration.database.SharedPreferenceManager
 import com.citizen.registration.databinding.LayoutPreviewBinding
 import com.citizen.registration.ui.viewmodel.CitizenRegistrationViewModel
 import com.citizen.registration.ui.viewmodel.CitizenRegistrationViewModel.Companion.mlDistrictBnPer
@@ -93,7 +91,16 @@ class PreviewDataFragment : BaseFragment<LayoutPreviewBinding>()
     override fun init() {
         (activity as BaseActivity).showToolbar() //display toolbar
         (activity as BaseActivity).setToolbarTitle("তথ্য দেখুন")
-        binding.tvHoldingNo.text = "${mlHoldingNo.value} - ${mlHoldingType.value}"
+        binding.tvHoldingNo.text = "${mlHoldingType.value.toString()}-${mlHoldingNo.value.toString()}"
+
+        if(CitizenRegistrationViewModel.mlGender.value == "মহিলা" && CitizenRegistrationViewModel.mlMaritalStatus.value == "বিবাহিত")
+        {
+            binding.lnHusbandName.visibility = VISIBLE
+            binding.lnFatherName.visibility = GONE
+        } else {
+            binding.lnHusbandName.visibility = GONE
+            binding.lnFatherName.visibility = VISIBLE
+        }
 
         if(mlIsSameAddress.value == "1") {
             binding.lnPermanentAddress.visibility = GONE

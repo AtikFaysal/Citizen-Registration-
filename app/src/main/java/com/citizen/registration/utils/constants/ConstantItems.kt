@@ -13,14 +13,14 @@ class ConstantItems
 {
     companion object{
         val gender = listOf(
-            Gender("0", chooseItem),
+            Gender("0", "চিহ্নিত করুন"),
             Gender("পুরুষ", "পুরুষ"),
             Gender("মহিলা", "মহিলা"),
             Gender("লিঙ্গ", "তৃতীয় লিঙ্গ"),
         )
 
         val identityType = listOf(
-            Items("0", chooseItem),
+            Items("0", "আইডি চিহ্নিত করুন"),
             Items("1", "ন্যশনাল আইডি"),
             Items("2", "জন্ম নিবন্ধন")
         )
@@ -52,6 +52,7 @@ class ConstantItems
         val occupationList = listOf(
             Items("0", chooseItem),
             Items("9", "শিক্ষক"),
+            Items("9", "গৃহিনী"),
             Items("1", "ডাক্তার"),
             Items("2", "ইঞ্জিনিয়ার"),
             Items("3", "ছাত্র"),
@@ -112,7 +113,7 @@ class ConstantItems
             with(holdingType)
             {
                 id = "0"
-                holdingName = chooseItem
+                holdingName = "হোল্ডিং নং চিহ্নিত করুন"
                 summary = ""
             }
 

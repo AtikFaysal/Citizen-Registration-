@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_back"
                 android:padding="@dimen/eight"
+                android:visibility="invisible"
                 android:layout_gravity="center_vertical"/>
 
             <androidx.appcompat.widget.AppCompatTextView

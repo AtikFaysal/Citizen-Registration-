@@ -14,7 +14,7 @@ class AppConstants
         const val YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss"
         const val YYYY_MMM_DD_HH_MM_AA = "yyyy-MMM-dd hh:mm a"
         const val MMM_DD_YYYY_HH_MM_AA = "MMM dd, yyyy hh:mm a"
-        const val MMM_DD_YYYY = "MMM dd, yyyy"
+        const val MMM_DD_YYYY = "MMMM dd, yyyy"
         const val YYYY_MM_DD = "yyyy-MM-dd"
         const val DD_MMM_YYYY = "dd-MMM-yyyy"
         const val DD_MM_YYYY = "dd-MM-yyyy"

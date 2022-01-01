@@ -24,7 +24,6 @@ class DashboardViewModel @Inject constructor(private val repository : UserReposi
 
     init {
         job = Job()
-        getReport()
     }
 
     /**

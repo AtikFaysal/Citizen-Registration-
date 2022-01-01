@@ -90,6 +90,8 @@ interface ApiServices
         @Field("conta_mobail") mobile : String,
         @Field("conta_mail") mail : String,
         @Field("en_attachment") enAttachment : String,
-        @Field("bn_attachment") bnAttachment : String
+        @Field("bn_attachment") bnAttachment : String,
+        @Field("en_Husband_name") husbandNameEn : String,
+        @Field("bn_Husband_name") husbandNameBn : String
     ): DefaultResponse
 }

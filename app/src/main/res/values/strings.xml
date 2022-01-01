@@ -13,6 +13,9 @@
     <string name="no_network_warning">Unable to connect internet, Please check your internet connection.</string>
 
     <!--    TextView hint text  -->
+    <string name="not_valid">পূর্বেই নিবন্ধিত হয়েছে</string>
+    <string name="valid">সঠিক</string>
+
     <string name="phone_number">মোবাইল নম্বর</string>
     <string name="email">ই-মেইল</string>
     <string name="attachment_en">সংযুক্তি যদি থাকে(ইংরেজিতে)</string>
@@ -45,6 +48,8 @@
     <string name="father_name_bn">পিতার নাম(বাংলাতে)</string>
     <string name="mother_name_en">মাতার নাম(ইংরেজিতে)</string>
     <string name="mother_name_bn">মাতার নাম(বাংলাতে)</string>
+    <string name="husband_name_en">স্বামীর নাম(ইংরেজিতে)</string>
+    <string name="husband_name_bn">স্বামীর নাম(বাংলাতে)</string>
 
     <string name="para">পাড়া/মহল্লা</string>
     <string name="road">রোড/ব্লক/সেক্টর</string>
@@ -71,6 +76,7 @@
     <string name="btn_next">পরবর্তী</string>
     <string name="btn_preview">পুনরায় দেখুন</string>
     <string name="btn_submit">দাখিল করুন</string>
+    <string name="btn_scan">স্ক্যান করুন</string>
 
     <!-- Checkbox title -->
     <string name="remember_me">মনে রাখুন</string>

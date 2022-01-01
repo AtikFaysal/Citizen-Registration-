@@ -2,7 +2,6 @@ package com.citizen.registration.network.api
 
 import com.citizen.registration.data.response.DefaultResponse
 import com.citizen.registration.data.response.LoginResponse
-import retrofit2.http.Field
 import javax.inject.Inject
 
 /**
@@ -35,7 +34,7 @@ class ApiHelperImpl @Inject constructor(private val apiServices : ApiServices) :
         perBnBlock : String, perEnWord : String,perBnWord : String, perEnPost : String,
         perBnPost : String,perEnDivision : String, perBnDivision : String,perEnDistrict : String,
         perBnDistrict : String, perEnSubDistrict : String,perBnSubDistrict : String,
-        mobile : String, mail : String,enAttachment : String, bnAttachment : String
+        mobile : String, mail : String,enAttachment : String, bnAttachment : String, husbandNameEn : String, husbandNameBn : String
     ): DefaultResponse = apiServices.citizenRegistration(
         trackingNumber , userId ,subUserId ,userName ,sameAsAddress ,
         identityType, picture ,holdingNo ,nationalId ,birthReg ,
@@ -49,6 +48,6 @@ class ApiHelperImpl @Inject constructor(private val apiServices : ApiServices) :
         perBnBlock , perEnWord ,perBnWord , perEnPost ,
         perBnPost ,perEnDivision , perBnDivision ,perEnDistrict ,
         perBnDistrict , perEnSubDistrict ,perBnSubDistrict ,
-        mobile , mail ,enAttachment , bnAttachment
+        mobile , mail ,enAttachment , bnAttachment, husbandNameEn , husbandNameBn
     )
 }

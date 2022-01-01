@@ -44,7 +44,7 @@ class UserRepository @Inject constructor(private val apiHelper : ApiHelper) : Sa
                                       perBnBlock : String, perEnWord : String,perBnWord : String, perEnPost : String,
                                       perBnPost : String,perEnDivision : String, perBnDivision : String,perEnDistrict : String,
                                       perBnDistrict : String, perEnSubDistrict : String,perBnSubDistrict : String,
-                                      mobile : String, mail : String,enAttachment : String, bnAttachment : String) = safeApiCall{
+                                      mobile : String, mail : String,enAttachment : String, bnAttachment : String, husbandNameEn : String, husbandNameBn : String) = safeApiCall{
         apiHelper.citizenRegistration(trackingNumber , userId ,subUserId ,userName ,sameAsAddress ,
             identityType, picture ,holdingNo ,nationalId ,birthReg ,
             passport ,dateOfBirth ,englishName ,banglaName ,gender ,
@@ -57,6 +57,6 @@ class UserRepository @Inject constructor(private val apiHelper : ApiHelper) : Sa
             perBnBlock , perEnWord ,perBnWord , perEnPost ,
             perBnPost ,perEnDivision , perBnDivision ,perEnDistrict ,
             perBnDistrict , perEnSubDistrict ,perBnSubDistrict ,
-            mobile , mail ,enAttachment , bnAttachment )
+            mobile , mail ,enAttachment , bnAttachment,husbandNameEn, husbandNameBn )
     }
 }

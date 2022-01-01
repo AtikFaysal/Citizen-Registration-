@@ -2,7 +2,6 @@ package com.citizen.registration.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import com.citizen.registration.data.model.NoNetworkException
 import com.citizen.registration.database.SharedPreferenceManager
 import com.citizen.registration.network.NetworkHelper
@@ -35,7 +34,7 @@ import javax.inject.Singleton
 class AppModule
 {
     @Provides
-    fun provideBaseUrl() = "https://citizen.fruitsbaazar.com/"
+    fun provideBaseUrl() = "http://app.azadulbari.tech/"//"https://citizen.fruitsbaazar.com/"//
 
     @Provides
     @Singleton

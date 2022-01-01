@@ -34,6 +34,6 @@ interface ApiHelper
         perBnBlock : String, perEnWord : String,perBnWord : String, perEnPost : String,
         perBnPost : String,perEnDivision : String, perBnDivision : String,perEnDistrict : String,
         perBnDistrict : String, perEnSubDistrict : String,perBnSubDistrict : String,
-        mobile : String, mail : String,enAttachment : String, bnAttachment : String
+        mobile : String, mail : String,enAttachment : String, bnAttachment : String, husbandNameEn : String, husbandNameBn : String
     ): DefaultResponse
 }

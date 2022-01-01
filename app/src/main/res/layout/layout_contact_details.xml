@@ -48,6 +48,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         style="@style/RobotoRegular"
                         android:textSize="@dimen/_14sdp"
+                        android:maxLength="11"
                         android:inputType="phone"
                         android:text="@={contact.Companion.mlPhoneNumber}"
                         android:textColor="@color/text_color"

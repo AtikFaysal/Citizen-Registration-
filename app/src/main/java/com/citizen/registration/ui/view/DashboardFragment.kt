@@ -41,6 +41,7 @@ class DashboardFragment : BaseFragment<LayoutDashboardBinding>()
         onReportObserver()
         onDataChanged()
         onClickListener()
+        viewModel.getReport()
     }
 
     override fun onDestroy() {

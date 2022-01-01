@@ -10,7 +10,6 @@ import com.citizen.registration.R
 import com.citizen.registration.core.BaseActivity
 import com.citizen.registration.core.BaseFragment
 import com.citizen.registration.data.model.Items
-import com.citizen.registration.database.SharedPreferenceManager
 import com.citizen.registration.databinding.LayoutBasicInfoBinding
 import com.citizen.registration.interfaces.ItemSelectionListener
 import com.citizen.registration.ui.viewmodel.CitizenRegistrationViewModel
@@ -33,6 +32,7 @@ import com.citizen.registration.utils.ErrorMessage.Companion.INVALID_FATHER_NAME
 import com.citizen.registration.utils.ErrorMessage.Companion.INVALID_GENDER
 import com.citizen.registration.utils.ErrorMessage.Companion.INVALID_HOLDING_NO
 import com.citizen.registration.utils.ErrorMessage.Companion.INVALID_HOLDING_TYPE
+import com.citizen.registration.utils.ErrorMessage.Companion.INVALID_HUSBAND_NAME
 import com.citizen.registration.utils.ErrorMessage.Companion.INVALID_IDENTITY
 import com.citizen.registration.utils.ErrorMessage.Companion.INVALID_LIVE_IN
 import com.citizen.registration.utils.ErrorMessage.Companion.INVALID_MARITAL_STATUS
@@ -61,11 +61,11 @@ import com.citizen.registration.utils.constants.ConstantItems.Companion.occupati
 import com.citizen.registration.utils.constants.ConstantItems.Companion.religionList
 import com.citizen.registration.utils.constants.Constants
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
 {
+    private var isIdentityNoValid = false
     private lateinit var binding: LayoutBasicInfoBinding
     private val viewModel : CitizenRegistrationViewModel by viewModels()
 
@@ -116,14 +116,17 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
 
     override fun onClickListener() {
         binding.btnNext.setOnClickListener {
-            if(onDataValidation())
-                viewModel.checkDuplicateIdentity()
-            //goToNextFragment(R.id.action_basicInfo_to_addressFragment, mRootView, null)
-            //viewModel.citizenRegistration()
+            if(onDataValidation()){
+                if(isIdentityNoValid)goToNextFragment(R.id.action_basicInfo_to_addressFragment, mRootView, null)
+            }
         }
 
         binding.tvDob.setOnClickListener {
             mActivity.pickPreviousDate(binding.tvDob)
+        }
+
+        binding.tvScan.setOnClickListener {
+
         }
     }
 
@@ -141,12 +144,40 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
                 binding.lnBirthReg.visibility = GONE
                 mlNidNo.value = ""
                 mlBirthRegNo.value = ""
+                binding.tvValid.visibility = GONE
             }else if(it == "2")
             {
                 binding.lnNid.visibility = GONE
                 binding.lnBirthReg.visibility = VISIBLE
                 mlNidNo.value = ""
                 mlBirthRegNo.value = ""
+                binding.tvValid.visibility = GONE
+            }
+        })
+
+        mlGender.observe(viewLifecycleOwner,{
+            visibleHusbandNameField()
+        })
+
+        mlMaritalStatus.observe(viewLifecycleOwner,{
+            visibleHusbandNameField()
+        })
+
+        mlNidNo.observe(viewLifecycleOwner,{
+            if(it.length >= 10)
+                viewModel.checkDuplicateIdentity()
+            else {
+                binding.tvValid.visibility = GONE
+                isIdentityNoValid = false
+            }
+        })
+
+        mlBirthRegNo.observe(viewLifecycleOwner,{
+            if(it.length >= 10)
+                viewModel.checkDuplicateIdentity()
+            else {
+                binding.tvValid.visibility = GONE
+                isIdentityNoValid = false
             }
         })
     }
@@ -156,19 +187,26 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
         viewModel.isDuplicateData.observe(viewLifecycleOwner, {
             when (it.responseCode) {
                 Constants.RESPONSE_SUCCESS_CODE -> {
-                    if(mlIdentityType.value == "1")mActivity.warningToast(INVALID_NID)
-                    else mActivity.warningToast(INVALID_BIRTH_REG_NO)
+                    binding.tvValid.visibility = VISIBLE
+                    binding.tvValid.text = mActivity.resources.getString(R.string.not_valid)
+                    isIdentityNoValid = false
                 }
                 Constants.NETWORK_ERROR_CODE -> {
                     if(onDataValidation())handleNetworkError(mContext) { viewModel.checkDuplicateIdentity() }
+                    isIdentityNoValid = false
                 }
 
                 Constants.RESPONSE_NOT_FOUND_CODE ->
-                    goToNextFragment(R.id.action_basicInfo_to_addressFragment, mRootView, null)
+                {
+                    binding.tvValid.visibility = GONE
+                    binding.tvValid.text = mActivity.resources.getString(R.string.valid)
+                    isIdentityNoValid = true
+                }
 
                 else -> {
-                    if(mlIdentityType.value == "1")mActivity.warningToast(INVALID_NID)
-                    else mActivity.warningToast(INVALID_BIRTH_REG_NO)
+                    binding.tvValid.visibility = VISIBLE
+                    binding.tvValid.text = mActivity.resources.getString(R.string.not_valid)
+                    isIdentityNoValid = false
                 }
             }
         })
@@ -272,7 +310,29 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
                 mActivity.warningToast(INVALID_MARITAL_STATUS)
                 return false
             }
+            FormErrors.INVALID_HUSBAND_NAME_EN -> {
+                binding.etHusbandName.requestFocus()
+                binding.etHusbandName.error = INVALID_HUSBAND_NAME
+                return false
+            }
+            FormErrors.INVALID_HUSBAND_NAME_BN -> {
+                binding.etHusbandNameBn.requestFocus()
+                binding.etHusbandNameBn.error = INVALID_HUSBAND_NAME
+                return false
+            }
             else -> return true
+        }
+    }
+
+    private fun visibleHusbandNameField()
+    {
+        if(mlGender.value == "মহিলা" && mlMaritalStatus.value == "বিবাহিত")
+        {
+            binding.lnHusbandName.visibility = VISIBLE
+            binding.lnFatherName.visibility = GONE
+        } else {
+            binding.lnHusbandName.visibility = GONE
+            binding.lnFatherName.visibility = VISIBLE
         }
     }
 

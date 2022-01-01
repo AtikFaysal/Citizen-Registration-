@@ -46,6 +46,7 @@
                         android:padding="@dimen/_5sdp"
                         style="@style/RobotoRegular"
                         android:textSize="@dimen/_14sdp"
+                        android:inputType="number"
                         android:textColor="@color/text_color"
                         android:text="@={basic_info.Companion.mlHoldingNo}"
                         android:background="@drawable/bg_square"
@@ -89,6 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/_5sdp">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -101,19 +103,41 @@
                         android:drawablePadding="@dimen/_5sdp"
                         android:text="@string/nid_title"/>
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_nid_no"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        style="@style/RobotoRegular"
-                        android:inputType="number"
-                        android:text="@={basic_info.Companion.mlNidNo}"
-                        android:textSize="@dimen/_14sdp"
-                        android:textColor="@color/text_color"
-                        android:background="@drawable/bg_square"
-                        android:hint="@string/nid"/>
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_nid_no"
+                            style="@style/RobotoRegular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_toStartOf="@+id/tv_scan"
+                            android:background="@drawable/bg_square"
+                            android:hint="@string/nid"
+                            android:inputType="number"
+                            android:maxLength="17"
+                            android:padding="@dimen/_5sdp"
+                            android:text="@={basic_info.Companion.mlNidNo}"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_scan"
+                            style="@style/RobotoMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/_3sdp"
+                            android:visibility="gone"
+                            android:text="@string/btn_scan"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -128,10 +152,10 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/green_A400"
                         style="@style/RobotoRegular"
                         android:textSize="@dimen/_14sdp"
-                        android:hint="@string/birth_reg_no_title"/>
+                        android:text="@string/birth_reg_no_title"/>
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_birth_reg_no"
@@ -139,14 +163,29 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5sdp"
                         style="@style/RobotoRegular"
+                        android:maxLength="17"
                         android:text="@={basic_info.Companion.mlBirthRegNo}"
                         android:textSize="@dimen/_14sdp"
+                        android:inputType="number"
                         android:textColor="@color/text_color"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/bg_square"
                         android:hint="@string/birth_reg_no"/>
 
                 </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_valid"
+                    style="@style/RobotoMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_3sdp"
+                    android:text="@string/valid"
+                    android:textColor="@color/red"
+                    android:visibility="gone"
+                    android:layout_gravity="end"
+                    android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
 
@@ -191,7 +230,7 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="1.5"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="@dimen/_5sdp"
@@ -216,6 +255,7 @@
                         android:textSize="@dimen/_14sdp"
                         android:textColor="@color/text_color"
                         android:layout_marginTop="@dimen/_5sdp"
+                        android:singleLine="true"
                         android:text="@={basic_info.Companion.mlDob}"
                         android:background="@drawable/bg_square"
                         android:hint="@string/dob"/>
@@ -298,10 +338,145 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ln_father_name"
+                android:id="@+id/ln_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/gender"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/marital_status"/>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_marital"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_30sdp"
+                        android:background="@drawable/bg_square"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_husband_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/ln_gender"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/husband_name_en"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_husband_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:inputType="textPersonName|textCapWords"
+                        android:text="@={basic_info.Companion.mlHusbandNameEn}"
+                        android:textColor="@color/text_color"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/husband_name_en"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/husband_name_bn"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_husband_name_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/text_color"
+                        android:inputType="textPersonName|textCapWords"
+                        android:text="@={basic_info.Companion.mlHusbandNameBn}"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/husband_name_bn"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_father_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_husband_name"
                 android:layout_marginTop="@dimen/topMargin"
                 android:orientation="vertical">
 
@@ -565,67 +740,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ln_gender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/ln_religion"
-                android:layout_marginTop="@dimen/topMargin"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/green_A400"
-                        style="@style/RobotoLight"
-                        android:textSize="@dimen/_14sdp"
-                        android:drawableEnd="@drawable/ic_required"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:text="@string/gender"/>
-
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/sp_gender"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="@dimen/_30sdp"
-                        android:background="@drawable/bg_square"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="@dimen/_5sdp">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/green_A400"
-                        style="@style/RobotoLight"
-                        android:textSize="@dimen/_14sdp"
-                        android:drawableEnd="@drawable/ic_required"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:text="@string/marital_status"/>
-
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/sp_marital"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="@dimen/_30sdp"
-                        android:background="@drawable/bg_square"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_next"
                 android:layout_width="match_parent"
@@ -638,7 +752,7 @@
                 android:gravity="center"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/ln_gender"
+                app:layout_constraintTop_toBottomOf="@+id/ln_religion"
                 android:background="@drawable/bg_button_square_round_bold"
                 android:textSize="@dimen/_15sdp"/>
 

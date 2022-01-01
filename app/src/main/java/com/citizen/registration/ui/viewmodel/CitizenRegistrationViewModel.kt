@@ -1,6 +1,5 @@
 package com.citizen.registration.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.citizen.registration.core.BaseFragment.Companion.districtList
@@ -44,6 +43,8 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         var mlFatherNameBn = MutableLiveData<String>()
         var mlMotherNameEn = MutableLiveData<String>()
         var mlMotherNameBn = MutableLiveData<String>()
+        var mlHusbandNameEn = MutableLiveData<String>()
+        var mlHusbandNameBn = MutableLiveData<String>()
         var mlOccupation = MutableLiveData<String>()
         var mlEducation = MutableLiveData<String>()
         var mlReligion = MutableLiveData<String>()
@@ -127,15 +128,13 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         if(!mlIdentityType.value.toString().anyInputValidation()) return FormErrors.INVALID_IDENTITY
         else {
             if(mlIdentityType.value.toString() == "1")
-                if(!mlNidNo.value.toString().anyInputValidation()) return FormErrors.INVALID_NID_NO
+                if(!mlNidNo.value.toString().anyInputValidation() || mlNidNo.value.toString().length < 10) return FormErrors.INVALID_NID_NO
             else if(mlIdentityType.value.toString() == "2")
-                if(!mlBirthRegNo.value.toString().anyInputValidation()) return FormErrors.INVALID_BIRTH_REG_NO
+                if(!mlBirthRegNo.value.toString().anyInputValidation() || mlBirthRegNo.value.toString().length < 10) return FormErrors.INVALID_BIRTH_REG_NO
         }
         if(!mlDob.value.toString().anyInputValidation()) return FormErrors.INVALID_DOB
         if(!mlNameEn.value.toString().nameValidation()) return FormErrors.INVALID_NAME_EN
         if(!mlNameBn.value.toString().anyInputValidation()) return FormErrors.INVALID_NAME_BN
-        if(!mlFatherNameEn.value.toString().anyInputValidation()) return FormErrors.INVALID_FATHER_NAME_EN
-        if(!mlFatherNameBn.value.toString().anyInputValidation()) return FormErrors.INVALID_FATHER_NAME_BN
         if(!mlMotherNameEn.value.toString().anyInputValidation()) return FormErrors.INVALID_MOTHER_NAME_EN
         if(!mlMotherNameBn.value.toString().anyInputValidation()) return FormErrors.INVALID_MOTHER_NAME_BN
         if(!mlOccupation.value.toString().anyInputValidation()) return FormErrors.INVALID_OCCUPATION
@@ -145,6 +144,14 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         if(!mlGender.value.toString().anyInputValidation()) return FormErrors.INVALID_GENDER
         if(!mlMaritalStatus.value.toString().anyInputValidation()) return FormErrors.INVALID_MARITAL_STATUS
 
+        if(mlGender.value == "মহিলা" && mlMaritalStatus.value == "বিবাহিত"){
+            if(!mlHusbandNameEn.value.toString().anyInputValidation()) return FormErrors.INVALID_HUSBAND_NAME_EN
+            if(!mlHusbandNameBn.value.toString().anyInputValidation()) return FormErrors.INVALID_HUSBAND_NAME_BN
+        }else {
+            if(!mlFatherNameEn.value.toString().anyInputValidation()) return FormErrors.INVALID_FATHER_NAME_EN
+            if(!mlFatherNameBn.value.toString().anyInputValidation()) return FormErrors.INVALID_FATHER_NAME_BN
+        }
+
         return FormErrors.SUCCESS
     }
 
@@ -153,8 +160,8 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         if(!mlParaEnPre.value.toString().anyInputValidation()) return FormErrors.INVALID_PARA_EN_PRE
         if(!mlParaBnPre.value.toString().anyInputValidation()) return FormErrors.INVALID_PARA_BN_PRE
 
-        if(!mlRoadEnPre.value.toString().anyInputValidation()) return FormErrors.INVALID_ROAD_EN_PRE
-        if(!mlRoadBnPre.value.toString().anyInputValidation()) return FormErrors.INVALID_ROAD_BN_PRE
+//        if(!mlRoadEnPre.value.toString().anyInputValidation()) return FormErrors.INVALID_ROAD_EN_PRE
+//        if(!mlRoadBnPre.value.toString().anyInputValidation()) return FormErrors.INVALID_ROAD_BN_PRE
 
         if(!mlWardEnPre.value.toString().anyInputValidation()) return FormErrors.INVALID_WARD_EN_PRE
         if(!mlWardBnPre.value.toString().anyInputValidation()) return FormErrors.INVALID_WARD_BN_PRE
@@ -176,8 +183,8 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
             if(!mlParaEnPer.value.toString().anyInputValidation()) return FormErrors.INVALID_PARA_EN_PER
             if(!mlParaBnPer.value.toString().anyInputValidation()) return FormErrors.INVALID_PARA_BN_PER
 
-            if(!mlRoadEnPer.value.toString().anyInputValidation()) return FormErrors.INVALID_ROAD_EN_PER
-            if(!mlRoadBnPer.value.toString().anyInputValidation()) return FormErrors.INVALID_ROAD_BN_PER
+//            if(!mlRoadEnPer.value.toString().anyInputValidation()) return FormErrors.INVALID_ROAD_EN_PER
+//            if(!mlRoadBnPer.value.toString().anyInputValidation()) return FormErrors.INVALID_ROAD_BN_PER
 
             if(!mlWardEnPer.value.toString().anyInputValidation()) return FormErrors.INVALID_WARD_EN_PER
             if(!mlWardBnPer.value.toString().anyInputValidation()) return FormErrors.INVALID_WARD_BN_PER
@@ -212,7 +219,6 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
     {
         val identityNo = if(mlIdentityType.value.toString() == "1") mlNidNo.value.toString() else mlBirthRegNo.value.toString()
         job = viewModelScope.launch {
-            isLoading.value = true
             repository.checkDuplicateIdentity(identityNo).let{
                 when(it)
                 {
@@ -227,7 +233,6 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
                     }
                 }
             }
-            isLoading.value = false
         }
     }
 
@@ -259,7 +264,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
     fun getPlaceInfo()
     {
         job = viewModelScope.launch {
-            isLoading.value = true
+            //isLoading.value = true
             repository.getPlaceInfo().let{
                 when(it)
                 {
@@ -274,7 +279,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
                     }
                 }
             }
-            isLoading.value = false
+            //isLoading.value = false
         }
     }
 
@@ -285,7 +290,6 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         {
             if(selection == DISTRICT_SELECTION){
                 if(mlDivisionEnPreId.value != null && item.divisionId == mlDivisionEnPreId.value.toString()) districts.add(item)
-                Log.d("divisionId1","${mlDivisionEnPreId.value.toString()} | $selection | $DISTRICT_SELECTION")
             }
 
             else if(selection == DISTRICT_SELECTION_BN) {
@@ -326,14 +330,14 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         job = viewModelScope.launch {
             isLoading.value = true
             repository.citizenRegistration(
-                "", "", "", "", mlIsSameAddress.value.toString(), mlIdentityType.value.toString(), "", "${mlHoldingNo.value.toString()} - ${mlHoldingType.value.toString()}",
+                "", "", "", "", mlIsSameAddress.value.toString(), mlIdentityType.value.toString(), "", "${mlHoldingType.value.toString()}-${mlHoldingNo.value.toString()}",
                 mlNidNo.value.toString(), mlBirthRegNo.value.toString(), mlPassportNo.value.toString(), mlDob.value.toString(), mlNameEn.value.toString(), mlNameBn.value.toString(), mlGender.value.toString(), mlMaritalStatus.value.toString(),
                 mlFatherNameEn.value.toString(), mlFatherNameBn.value.toString(), mlMotherNameEn.value.toString(), mlMotherNameBn.value.toString(), mlOccupation.value.toString(), mlEducation.value.toString(), mlReligion.value.toString(), mlLiveIn.value.toString(),
                 mlParaEnPre.value.toString(), mlParaBnPre.value.toString(), mlRoadEnPre.value.toString(), mlRoadBnPre.value.toString(), mlWardEnPre.value.toString(), mlWardBnPre.value.toString(), mlPostOfficeEnPre.value.toString(), mlPostOfficeBnPre.value.toString(),
                 mlDivisionEnPre.value.toString(), mlDivisionBnPre.value.toString(), mlDistrictEnPre.value.toString(), mlDistrictBnPre.value.toString(), mlSubDistrictEnPre.value.toString(), mlSubDistrictBnPre.value.toString(),
                 mlParaEnPer.value.toString(), mlParaBnPer.value.toString(), mlRoadEnPer.value.toString(), mlRoadBnPer.value.toString(), mlWardEnPer.value.toString(), mlWardBnPer.value.toString(), mlPostOfficeEnPer.value.toString(), mlPostOfficeBnPer.value.toString(),
                 mlDivisionEnPer.value.toString(), mlDivisionBnPer.value.toString(), mlDistrictEnPer.value.toString(), mlDistrictBnPer.value.toString(), mlSubDistrictEnPer.value.toString(), mlSubDistrictBnPer.value.toString(),
-                mlPhoneNumber.value.toString(), mlEmail.value.toString(), mlAttachmentEn.value.toString(), mlAttachmentBn.value.toString()
+                mlPhoneNumber.value.toString(), mlEmail.value.toString(), mlAttachmentEn.value.toString(), mlAttachmentBn.value.toString(), mlHusbandNameEn.value.toString(), mlHusbandNameBn.value.toString()
             ).let{
                 when(it)
                 {
@@ -406,5 +410,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         mlEmail.value = ""
         mlAttachmentEn.value = ""
         mlAttachmentBn.value = ""
+        mlHusbandNameEn.value = ""
+        mlHusbandNameBn.value = ""
     }
 }
