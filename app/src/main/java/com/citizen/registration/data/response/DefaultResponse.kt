@@ -1,7 +1,6 @@
 package com.citizen.registration.data.response
 
-import com.citizen.registration.data.model.DataModel
-import com.citizen.registration.data.model.HoldingTypeModel
+import com.citizen.registration.data.model.*
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -18,4 +17,7 @@ class DefaultResponse
     @SerializedName("total") lateinit var total : String
     @SerializedName("data") var data : DataModel?= DataModel()
     @SerializedName("holding_list") var holdingList = ArrayList<HoldingTypeModel>()
+    @SerializedName("upazilas") var subDistrictList = ArrayList<SubDistrictModel>()
+    @SerializedName("districts") var districtList = ArrayList<DistrictModel>()
+    @SerializedName("divisions") var divisionList = ArrayList<DivisionModel>()
 }

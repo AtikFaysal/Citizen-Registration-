@@ -1,6 +1,7 @@
 package com.citizen.registration.ui.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -87,6 +88,7 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
         binding.basicInfo = viewModel
         init()
         onNidDuplicateObserver()
+        onCitizenRegistration()
         onDataChanged()
         onClickListener()
         holdingTypeObserver()
@@ -95,6 +97,7 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
     override fun onDestroy() {
         super.onDestroy()
         viewModel.job.cancel()
+        viewModel.clearUserInfo()
     }
 
     override fun init() {
@@ -117,8 +120,9 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
     override fun onClickListener() {
         binding.btnNext.setOnClickListener {
             //if(onDataValidation())
-                //viewModel.checkDuplicateIdentity()
-            goToNextFragment(R.id.action_basicInfo_to_addressFragment, mRootView, null)
+               // viewModel.checkDuplicateIdentity()
+            //goToNextFragment(R.id.action_basicInfo_to_addressFragment, mRootView, null)
+            viewModel.citizenRegistration()
         }
 
         binding.tvDob.setOnClickListener {
@@ -162,9 +166,8 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
                     if(onDataValidation())handleNetworkError(mContext) { viewModel.checkDuplicateIdentity() }
                 }
 
-                Constants.RESPONSE_NOT_FOUND_CODE -> {
-
-                }
+                Constants.RESPONSE_NOT_FOUND_CODE ->
+                    goToNextFragment(R.id.action_basicInfo_to_addressFragment, mRootView, null)
 
                 else -> {
                     if(mlIdentityType.value == "1")mActivity.warningToast(INVALID_NID)
@@ -292,5 +295,22 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
                 }
             }
         }
+    }
+
+    private fun onCitizenRegistration()
+    {
+        viewModel.isRegistered.observe(viewLifecycleOwner, {
+            Log.d("responseCode", "${it.responseCode}")
+            when (it.responseCode) {
+                Constants.INSERT_SUCCESS_CODE -> {
+                    mActivity.successToast("Success")
+                }
+                Constants.NETWORK_ERROR_CODE -> {
+                    handleNetworkError(mContext) { viewModel.citizenRegistration() }
+                }
+
+                else -> mActivity.warningToast(ErrorMessage.REGISTRATION_FAILED)
+            }
+        })
     }
 }

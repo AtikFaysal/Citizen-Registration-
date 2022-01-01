@@ -55,7 +55,8 @@ class ContactDetailsFragment: BaseFragment<LayoutContactDetailsBinding>()
 
     override fun onClickListener() {
         binding.btnPreview.setOnClickListener {
-
+            if(onDataValidation())
+                goToNextFragment(R.id.action_contactDetailsFragment_to_previewDataFragment, mRootView, null)
         }
     }
 

@@ -82,7 +82,7 @@
                         android:text="@={contact.Companion.mlEmail}"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/bg_square"
-                        android:hint="@string/my_name_bn"/>
+                        android:hint="@string/email"/>
 
                 </LinearLayout>
 
@@ -112,7 +112,7 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_attachment_en"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_60sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:padding="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         style="@style/RobotoRegular"
@@ -142,7 +142,7 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_attachment_bn"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_60sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:padding="@dimen/_5sdp"
                         style="@style/RobotoRegular"
                         android:textSize="@dimen/_14sdp"

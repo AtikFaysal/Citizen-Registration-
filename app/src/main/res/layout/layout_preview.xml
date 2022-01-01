@@ -1,0 +1,1764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="preview"
+            type="com.citizen.registration.ui.viewmodel.CitizenRegistrationViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/green_A400"
+                    style="@style/RobotoLight"
+                    android:textSize="@dimen/_10sdp"
+                    android:text="@string/holding_no_type"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_holding_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    style="@style/RobotoRegular"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:textColor="@color/text_color"
+                    android:hint="@string/holding_no_type"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_my_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/my_name_en"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_my_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlNameEn}"
+                        android:hint="@string/my_name_en"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/my_name_bn"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_my_name_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlNameBn}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/my_name_bn"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_father_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/father_name_en"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_father_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlFatherNameEn}"
+                        android:hint="@string/my_name_en"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/father_name_bn"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_father_name_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlFatherNameBn}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/my_name_bn"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/mother_name_en"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_mother_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlMotherNameEn}"
+                        android:hint="@string/mother_name_en"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/mother_name_bn"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_mother_name_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlMotherNameBn}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/mother_name_bn"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ln_nid"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/nid_title"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_nid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:singleLine="true"
+                        android:text="@={preview.Companion.mlNidNo}"
+                        android:hint="@string/nid"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_birth_reg"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/birth_reg_no_title"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_birth_reg_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlBirthRegNo}"
+                        android:textSize="@dimen/_12sdp"
+                        android:singleLine="true"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/birth_reg_no_title"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/phone_number"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlPhoneNumber}"
+                        android:hint="@string/phone_number"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/email"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlEmail}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/email"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/passport_title"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_passport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlPassportNo}"
+                        android:hint="@string/passport_title"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/dob"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlDob}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/dob"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/occupation"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_occupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlOccupation}"
+                        android:hint="@string/occupation"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/education"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_education"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlEducation}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/education"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/religion"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_religion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlReligion}"
+                        android:hint="@string/religion"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/live_in"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_live_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlLiveIn}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/live_in"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_my_name"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/gender"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlGender}"
+                        android:hint="@string/gender"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/marital_status"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_marital_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlMaritalStatus}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/marital_status"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_present_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_grey"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="@dimen/_14sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/present_address"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tv_present_address"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:textSize="@dimen/_14sdp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/english"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:gravity="center"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/bangla"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/para"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_para_present_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlParaEnPre}"
+                        android:hint="@string/para"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/para"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_para_present_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlParaBnPre}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/para"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/road"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_road_present_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlRoadEnPre}"
+                        android:hint="@string/road"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/road"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_road_present_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlRoadBnPre}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/road"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/ward"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_ward_present_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlWardEnPre}"
+                        android:hint="@string/ward"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/ward"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_ward_present_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlWardBnPre}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/ward"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/post_office"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_post_office_present_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlPostOfficeEnPre}"
+                        android:hint="@string/post_office"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/ward"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_post_office_present_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlPostOfficeBnPre}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/post_office"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/division"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_division_present_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlDivisionEnPre}"
+                        android:hint="@string/division"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/division"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_division_present_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlDivisionBnPre}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/division"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/sub_division"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_district_present_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlDistrictEnPre}"
+                        android:hint="@string/sub_division"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/sub_division"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_district_present_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlDistrictBnPre}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/sub_division"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/district"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_sub_district_present_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlSubDistrictEnPre}"
+                        android:hint="@string/district"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/district"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_sub_district_present_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/RobotoRegular"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@={preview.Companion.mlSubDistrictBnPre}"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:hint="@string/district"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_same_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="@dimen/_14sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/same_address"/>
+
+            <LinearLayout
+                android:id="@+id/ln_permanent_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_grey"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:textSize="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center_horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/cb_same_as_present"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/permanent_address"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_present_address"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:textSize="@dimen/_14sdp"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/english"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:gravity="center"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/bangla"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/para"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/et_para_permanent_en"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textColor="@color/text_color"
+                            android:text="@={preview.Companion.mlParaEnPer}"
+                            android:hint="@string/para"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/para"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_para_permanent_bn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/RobotoRegular"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@={preview.Companion.mlParaBnPer}"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:hint="@string/para"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/road"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_road_permanent_en"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textColor="@color/text_color"
+                            android:text="@={preview.Companion.mlRoadEnPer}"
+                            android:hint="@string/road"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/road"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_road_permanent_bn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/RobotoRegular"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@={preview.Companion.mlRoadBnPer}"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:hint="@string/road"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/ward"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_ward_permanent_en"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textColor="@color/text_color"
+                            android:text="@={preview.Companion.mlWardEnPer}"
+                            android:hint="@string/ward"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/ward"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_ward_permanent_bn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/RobotoRegular"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@={preview.Companion.mlWardBnPer}"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:hint="@string/ward"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/post_office"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_post_office_permanent_en"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textColor="@color/text_color"
+                            android:text="@={preview.Companion.mlPostOfficeEnPer}"
+                            android:hint="@string/post_office"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/ward"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_post_office_permanent_bn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/RobotoRegular"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@={preview.Companion.mlPostOfficeBnPer}"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:hint="@string/post_office"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/division"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_division_permanent_en"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textColor="@color/text_color"
+                            android:text="@={preview.Companion.mlDivisionEnPer}"
+                            android:hint="@string/division"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/division"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_division_permanent_bn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/RobotoRegular"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@={preview.Companion.mlDivisionBnPer}"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:hint="@string/division"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/sub_division"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_district_permanent_en"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textColor="@color/text_color"
+                            android:text="@={preview.Companion.mlDistrictEnPer}"
+                            android:hint="@string/sub_division"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/sub_division"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_district_permanent_bn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/RobotoRegular"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@={preview.Companion.mlDistrictBnPer}"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:hint="@string/sub_division"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/topMargin"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/district"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_sub_district_permanent_en"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/RobotoRegular"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textColor="@color/text_color"
+                            android:text="@={preview.Companion.mlSubDistrictEnPer}"
+                            android:hint="@string/district"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_A400"
+                            style="@style/RobotoLight"
+                            android:textSize="@dimen/_10sdp"
+                            android:text="@string/district"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_sub_district_permanent_bn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/RobotoRegular"
+                            android:textColor="@color/text_color"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@={preview.Companion.mlSubDistrictBnPer}"
+                            android:textSize="@dimen/_12sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:hint="@string/district"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln_attachment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/ln_contact"
+                android:layout_marginTop="@dimen/topMargin"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/attachment_en"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_attachment_en"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:gravity="start"
+                        android:textColor="@color/text_color"
+                        android:text="@={preview.Companion.mlAttachmentEn}"
+                        android:hint="@string/attachment_hint_en"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="@string/attachment_bn"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/et_attachment_bn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="start"
+                        android:text="@={preview.Companion.mlAttachmentBn}"
+                        android:hint="@string/attachment_hint_bn"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                style="@style/RobotoRegular"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@string/btn_submit"
+                android:padding="@dimen/_10sdp"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/ln_attachment"
+                android:background="@drawable/bg_button_square_round_bold"
+                android:textSize="@dimen/_15sdp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

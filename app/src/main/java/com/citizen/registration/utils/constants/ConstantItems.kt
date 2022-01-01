@@ -1,8 +1,6 @@
 package com.citizen.registration.utils.constants
 
-import com.citizen.registration.data.model.Gender
-import com.citizen.registration.data.model.HoldingTypeModel
-import com.citizen.registration.data.model.Items
+import com.citizen.registration.data.model.*
 import com.citizen.registration.utils.constants.AppConstants.Companion.chooseItem
 
 
@@ -53,14 +51,33 @@ class ConstantItems
 
         val occupationList = listOf(
             Items("0", chooseItem),
-            Items("1", "Software Engineer"),
-            Items("2", "Doctor"),
+            Items("9", "শিক্ষক"),
+            Items("1", "ডাক্তার"),
+            Items("2", "ইঞ্জিনিয়ার"),
+            Items("3", "ছাত্র"),
+            Items("4", "কৃষক"),
+            Items("5", "শ্রমিক"),
+            Items("6", "চাকুরিজীবী"),
+            Items("7", "ব্যাবসায়ী"),
+            Items("8", "অন্যান্য"),
         )
 
         val educationList = listOf(
             Items("0", chooseItem),
-            Items("1", "B.S.C"),
-            Items("2", "M.B.B.S"),
+            Items("1", "প্রাথমিক শিক্ষা"),
+            Items("2", "জে.এস.সি"),
+            Items("3", "জে.ডি.সি"),
+            Items("4", "এস.এস.সি"),
+            Items("5", "দাখিল"),
+            Items("6", "এইচ.এস.সি"),
+            Items("7", "আলিম"),
+            Items("8", "ডিপ্লোমা"),
+            Items("9", "অনার্স"),
+            Items("10", "ফাজিল"),
+            Items("11", "কামিল"),
+            Items("12", "মাস্টার্স"),
+            Items("13", "এম.বি.বি.এস"),
+            Items("14", "অন্যান্য"),
         )
 
         val wardNoListEn = listOf(
@@ -89,78 +106,6 @@ class ConstantItems
             Items("9", "৯"),
         )
 
-        val divisionListEn = listOf(
-            Items("0", chooseItem),
-            Items("1", "Dhaka"),
-            Items("2", "Chittagong"),
-            Items("3", "Rajshahi"),
-            Items("4", "Khulna"),
-            Items("5", "Barisal"),
-            Items("6", "Sylhet"),
-            Items("7", "Rangpur"),
-            Items("8", "Maymensingh"),
-        )
-
-        val divisionListBn = listOf(
-            Items("0", chooseItem),
-            Items("1", "ঢাকা"),
-            Items("2", "চট্রগ্রাম"),
-            Items("3", "রাজশাহী"),
-            Items("4", "খুলনা"),
-            Items("5", "বরিশাল"),
-            Items("6", "সিলেট"),
-            Items("7", " রংপুর"),
-            Items("8", "ময়মনসিংহ"),
-        )
-
-        val districtListEn = listOf(
-            Items("0", chooseItem),
-            Items("1", "Dhaka"),
-            Items("2", "Chittagong"),
-            Items("3", "Rajshahi"),
-            Items("4", "Khulna"),
-            Items("5", "Barisal"),
-            Items("6", "Sylhet"),
-            Items("7", "Rangpur"),
-            Items("8", "Maymensingh"),
-        )
-
-        val districtListBn = listOf(
-            Items("0", chooseItem),
-            Items("1", "ঢাকা"),
-            Items("2", "চট্রগ্রাম"),
-            Items("3", "রাজশাহী"),
-            Items("4", "খুলনা"),
-            Items("5", "বরিশাল"),
-            Items("6", "সিলেট"),
-            Items("7", " রংপুর"),
-            Items("8", "ময়মনসিংহ"),
-        )
-
-        val subDistrictListEn = listOf(
-            Items("0", chooseItem),
-            Items("1", "Dhaka"),
-            Items("2", "Chittagong"),
-            Items("3", "Rajshahi"),
-            Items("4", "Khulna"),
-            Items("5", "Barisal"),
-            Items("6", "Sylhet"),
-            Items("7", "Rangpur"),
-            Items("8", "Maymensingh"),
-        )
-
-        val subDistrictListBn = listOf(
-            Items("0", chooseItem),
-            Items("1", "ঢাকা"),
-            Items("2", "চট্রগ্রাম"),
-            Items("3", "রাজশাহী"),
-            Items("4", "খুলনা"),
-            Items("5", "বরিশাল"),
-            Items("6", "সিলেট"),
-            Items("7", " রংপুর"),
-            Items("8", "ময়মনসিংহ"),
-        )
-
         fun getEmptyHoldingType() : HoldingTypeModel
         {
             val holdingType = HoldingTypeModel()
@@ -172,6 +117,45 @@ class ConstantItems
             }
 
             return holdingType
+        }
+
+        fun getEmptyDivision() : DivisionModel
+        {
+            val division = DivisionModel()
+            with(division)
+            {
+                id = "0"
+                divisionNameEn = chooseItem
+                divisionNameBn = chooseItem
+            }
+
+            return division
+        }
+
+        fun getEmptyDistrict() : DistrictModel
+        {
+            val district = DistrictModel()
+            with(district)
+            {
+                id = "0"
+                districtNameEn = chooseItem
+                districtNameBn = chooseItem
+            }
+
+            return district
+        }
+
+        fun getEmptySubDistrict() : SubDistrictModel
+        {
+            val subDistrict = SubDistrictModel()
+            with(subDistrict)
+            {
+                id = "0"
+                subDistrictNameEn = chooseItem
+                subDistrictNameBn = chooseItem
+            }
+
+            return subDistrict
         }
     }
 }

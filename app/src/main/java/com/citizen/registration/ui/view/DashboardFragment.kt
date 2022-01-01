@@ -95,4 +95,5 @@ class DashboardFragment : BaseFragment<LayoutDashboardBinding>()
             }
         })
     }
+
 }

@@ -10,6 +10,7 @@ class ErrorMessage
     companion object{
         const val LOGIN_FAILED = "Unauthorized access, please check your username and password."
         const val UNKNOWN_ERROR = "Unknown error occur, please retry."
+        const val REGISTRATION_FAILED = "নতুন নাগরিক যোগ করা সম্বব হয়নি, আবার চেষ্টা করুন।"
         const val INVALID_PASSWORD = "পাসওয়ার্ড টি সঠিক নয়।"
         const val INVALID_PHONE = "ফোন নম্বর টি সঠিক নয়"
 
@@ -48,6 +49,6 @@ class ErrorMessage
         const val INVALID_THANA_BN = "থানার টি সঠিক নয়"
 
         //================================== SUCCESS MESSAGE =====================
-        const val REGISTRATION_SUCCESS = "Registration complete. Thank you"
+        const val REGISTRATION_SUCCESS = "নতুন নাগরিক যোগ করা সফল হয়েছে, ধন্যবাদ।"
     }
 }

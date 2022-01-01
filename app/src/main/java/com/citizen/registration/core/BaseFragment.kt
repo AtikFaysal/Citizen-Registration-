@@ -16,7 +16,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.citizen.registration.data.model.DistrictModel
+import com.citizen.registration.data.model.DivisionModel
 import com.citizen.registration.data.model.HoldingTypeModel
+import com.citizen.registration.data.model.SubDistrictModel
 import com.citizen.registration.interfaces.InitialComponent
 import com.citizen.registration.utils.LoadingUtils
 import com.google.android.material.snackbar.Snackbar
@@ -30,6 +33,9 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() , InitialComponent
 {
     companion object{
         var holdingTypeList = ArrayList<HoldingTypeModel>()
+        var subDistrictList = ArrayList<SubDistrictModel>()
+        var districtList = ArrayList<DistrictModel>()
+        var divisionList = ArrayList<DivisionModel>()
     }
 
     protected lateinit var loadingDialog : AlertDialog

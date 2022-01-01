@@ -76,6 +76,19 @@
     <fragment
         android:id="@+id/contactDetailsFragment"
         android:name="com.citizen.registration.ui.view.ContactDetailsFragment"
-        android:label="ContactDetailsFragment" />
+        android:label="ContactDetailsFragment" >
+        <action
+            android:id="@+id/action_contactDetailsFragment_to_previewDataFragment"
+            app:destination="@id/previewDataFragment"
+            app:enterAnim="@anim/animation_slide_in_right"
+            app:exitAnim="@anim/animation_slide_out_left"
+            app:popEnterAnim="@anim/animation_slide_in_left"
+            app:popExitAnim="@anim/animation_slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/previewDataFragment"
+        android:name="com.citizen.registration.ui.view.PreviewDataFragment"
+        android:label="PreviewDataFragment" />
 
 </navigation>

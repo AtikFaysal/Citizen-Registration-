@@ -9,11 +9,21 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.citizen.registration.R
-import com.citizen.registration.data.model.Gender
-import com.citizen.registration.data.model.HoldingTypeModel
-import com.citizen.registration.data.model.Items
+import com.citizen.registration.data.model.*
+import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION
+import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_BN
+import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_BN_PERMANENT
+import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_PERMANENT
+import com.citizen.registration.utils.constants.AppConstants.Companion.DIVISION_SELECTION
+import com.citizen.registration.utils.constants.AppConstants.Companion.DIVISION_SELECTION_BN
+import com.citizen.registration.utils.constants.AppConstants.Companion.DIVISION_SELECTION_BN_PERMANENT
+import com.citizen.registration.utils.constants.AppConstants.Companion.DIVISION_SELECTION_PERMANENT
 import com.citizen.registration.utils.constants.AppConstants.Companion.GENDER_SELECTION
 import com.citizen.registration.utils.constants.AppConstants.Companion.HOLDING_SELECTION
+import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION
+import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION_BN
+import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION_BN_PERMANENT
+import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION_PERMANENT
 
 /**
  * @author Atik Faysal(Android Developer)
@@ -56,6 +66,34 @@ class SpinnerItemsAdapter(mContext: Context, private var itemList : List<Any>, p
                     val model = itemList[i] as HoldingTypeModel
                     model.holdingName
                 }
+
+                DIVISION_SELECTION,DIVISION_SELECTION_PERMANENT -> {
+                    val model = itemList[i] as DivisionModel
+                    model.divisionNameEn
+                }
+                DIVISION_SELECTION_BN,DIVISION_SELECTION_BN_PERMANENT -> {
+                    val model = itemList[i] as DivisionModel
+                    model.divisionNameBn
+                }
+
+                DISTRICT_SELECTION,DISTRICT_SELECTION_PERMANENT -> {
+                    val model = itemList[i] as DistrictModel
+                    model.districtNameEn
+                }
+                DISTRICT_SELECTION_BN,DISTRICT_SELECTION_BN_PERMANENT -> {
+                    val model = itemList[i] as DistrictModel
+                    model.districtNameBn
+                }
+
+                SUB_DISTRICT_SELECTION,SUB_DISTRICT_SELECTION_PERMANENT -> {
+                    val model = itemList[i] as SubDistrictModel
+                    model.subDistrictNameEn
+                }
+                SUB_DISTRICT_SELECTION_BN,SUB_DISTRICT_SELECTION_BN_PERMANENT -> {
+                    val model = itemList[i] as SubDistrictModel
+                    model.subDistrictNameBn
+                }
+
                 else -> {
                     val model = itemList[i] as Items
                     model.title

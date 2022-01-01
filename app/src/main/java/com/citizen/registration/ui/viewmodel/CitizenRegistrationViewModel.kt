@@ -1,12 +1,27 @@
 package com.citizen.registration.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.citizen.registration.core.BaseFragment.Companion.districtList
+import com.citizen.registration.core.BaseFragment.Companion.subDistrictList
 import com.citizen.registration.core.BaseViewModel
+import com.citizen.registration.data.model.DistrictModel
 import com.citizen.registration.data.model.HoldingTypeModel
+import com.citizen.registration.data.model.SubDistrictModel
 import com.citizen.registration.data.response.DefaultResponse
 import com.citizen.registration.repository.UserRepository
 import com.citizen.registration.utils.*
+import com.citizen.registration.utils.ExtraUtils.Companion.errorResponse
+import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION
+import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_BN
+import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_BN_PERMANENT
+import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_PERMANENT
+import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION
+import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION_BN
+import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION_BN_PERMANENT
+import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION_PERMANENT
+import com.citizen.registration.utils.constants.ConstantItems
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -66,10 +81,20 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         var mlDivisionEnPre = MutableLiveData<String>()
         var mlDivisionBnPre = MutableLiveData<String>()
 
+        var mlDivisionEnPerId = MutableLiveData<String>()
+        var mlDivisionBnPerId = MutableLiveData<String>()
+        var mlDivisionEnPreId = MutableLiveData<String>()
+        var mlDivisionBnPreId = MutableLiveData<String>()
+
         var mlDistrictEnPer = MutableLiveData<String>()
         var mlDistrictBnPer = MutableLiveData<String>()
         var mlDistrictEnPre = MutableLiveData<String>()
         var mlDistrictBnPre = MutableLiveData<String>()
+
+        var mlDistrictEnPerId = MutableLiveData<String>()
+        var mlDistrictBnPerId = MutableLiveData<String>()
+        var mlDistrictEnPreId = MutableLiveData<String>()
+        var mlDistrictBnPreId = MutableLiveData<String>()
 
         var mlSubDistrictEnPer = MutableLiveData<String>()
         var mlSubDistrictBnPer = MutableLiveData<String>()
@@ -79,14 +104,17 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         var mlIsSameAddress = MutableLiveData("0")
     }
 
-    private var _reportData = SingleLiveEvent<DefaultResponse>()
-    val reportData : SingleLiveEvent<DefaultResponse> get() = _reportData
-
     private var _isDuplicateData = SingleLiveEvent<DefaultResponse>()
     val isDuplicateData : SingleLiveEvent<DefaultResponse> get() = _isDuplicateData
 
     private var _holdingNoInfo = MutableLiveData<List<HoldingTypeModel>>()
     val holdingNoInfo : MutableLiveData<List<HoldingTypeModel>> get() = _holdingNoInfo
+
+    private var _placeInfo = SingleLiveEvent<DefaultResponse>()
+    val placeInfo : SingleLiveEvent<DefaultResponse> get() = _placeInfo
+
+    private var _isRegistered = SingleLiveEvent<DefaultResponse>()
+    val isRegistered : SingleLiveEvent<DefaultResponse> get() = _isRegistered
 
     init {
         job = Job()
@@ -172,7 +200,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
 
     fun contactInfoValidation() : FormErrors
     {
-        if(!mlPhoneNumber.value.toString().anyInputValidation()) return FormErrors.INVALID_PHONE
+        if(!mlPhoneNumber.value.toString().phoneValidation()) return FormErrors.INVALID_PHONE
 
         return FormErrors.SUCCESS
     }
@@ -194,7 +222,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
                         }
                     }
                     is Resource.Failure->{
-                        _isDuplicateData.value = ExtraUtils.errorResponse(it)
+                        _isDuplicateData.value = errorResponse(it)
                         isNetworkError.value = it.isNetworkError
                     }
                 }
@@ -226,5 +254,157 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
             }
             isLoading.value = false
         }
+    }
+
+    fun getPlaceInfo()
+    {
+        job = viewModelScope.launch {
+            isLoading.value = true
+            repository.getPlaceInfo().let{
+                when(it)
+                {
+                    is Resource.Success-> {
+                        it.value.let { response->
+                            _placeInfo.value = response
+                        }
+                    }
+                    is Resource.Failure->{
+                        _placeInfo.value = errorResponse(it)
+                        isNetworkError.value = it.isNetworkError
+                    }
+                }
+            }
+            isLoading.value = false
+        }
+    }
+
+    fun getDistrict(selection : Int) : ArrayList<DistrictModel>
+    {
+        val districts = ArrayList<DistrictModel>()
+        for(item in districtList)
+        {
+            if(selection == DISTRICT_SELECTION){
+                if(mlDivisionEnPreId.value != null && item.divisionId == mlDivisionEnPreId.value.toString()) districts.add(item)
+                Log.d("divisionId1","${mlDivisionEnPreId.value.toString()} | $selection | $DISTRICT_SELECTION")
+            }
+
+            else if(selection == DISTRICT_SELECTION_BN) {
+                if(mlDivisionEnPreId.value != null && item.divisionId == mlDivisionBnPreId.value.toString()) districts.add(item)
+            }
+
+            else if(selection == DISTRICT_SELECTION_PERMANENT) {
+                if(mlDivisionEnPerId.value != null && item.divisionId == mlDivisionEnPerId.value.toString()) districts.add(item)
+            }
+
+            else if(selection == DISTRICT_SELECTION_BN_PERMANENT) {
+                if(mlDivisionBnPerId.value != null && item.divisionId == mlDivisionBnPerId.value.toString()) districts.add(item)
+            }
+        }
+        districts.add(0,ConstantItems.getEmptyDistrict())
+        return districts
+    }
+
+    fun getSubDistrict(selection : Int) : ArrayList<SubDistrictModel>
+    {
+        val subDistricts = ArrayList<SubDistrictModel>()
+        for(item in subDistrictList)
+        {
+            if(selection == SUB_DISTRICT_SELECTION) if(item.districtId == mlDistrictEnPreId.value.toString()) subDistricts.add(item)
+
+            if(selection == SUB_DISTRICT_SELECTION_BN) if(item.districtId == mlDistrictBnPreId.value.toString()) subDistricts.add(item)
+
+            if(selection == SUB_DISTRICT_SELECTION_PERMANENT) if(item.districtId == mlDistrictEnPerId.value.toString()) subDistricts.add(item)
+
+            if(selection == SUB_DISTRICT_SELECTION_BN_PERMANENT) if(item.districtId == mlDistrictBnPerId.value.toString()) subDistricts.add(item)
+        }
+        subDistricts.add(0,ConstantItems.getEmptySubDistrict())
+        return subDistricts
+    }
+
+    fun citizenRegistration()
+    {
+        job = viewModelScope.launch {
+            isLoading.value = true
+            repository.citizenRegistration(
+                "", "", "", "", mlIsSameAddress.value.toString(), mlIdentityType.value.toString(), "", "${mlHoldingNo.value.toString()} - ${mlHoldingType.value.toString()}",
+                mlNidNo.value.toString(), mlBirthRegNo.value.toString(), mlPassportNo.value.toString(), mlDob.value.toString(), mlNameEn.value.toString(), mlNameBn.value.toString(), mlGender.value.toString(), mlMaritalStatus.value.toString(),
+                mlFatherNameEn.value.toString(), mlFatherNameBn.value.toString(), mlMotherNameEn.value.toString(), mlMotherNameBn.value.toString(), mlOccupation.value.toString(), mlEducation.value.toString(), mlReligion.value.toString(), mlLiveIn.value.toString(),
+                mlParaEnPre.value.toString(), mlParaBnPre.value.toString(), mlRoadEnPre.value.toString(), mlRoadBnPre.value.toString(), mlWardEnPre.value.toString(), mlWardBnPre.value.toString(), mlPostOfficeEnPre.value.toString(), mlPostOfficeBnPre.value.toString(),
+                mlDivisionEnPre.value.toString(), mlDivisionBnPre.value.toString(), mlDistrictEnPre.value.toString(), mlDistrictBnPre.value.toString(), mlSubDistrictEnPre.value.toString(), mlSubDistrictBnPre.value.toString(),
+                mlParaEnPer.value.toString(), mlParaBnPer.value.toString(), mlRoadEnPer.value.toString(), mlRoadBnPer.value.toString(), mlWardEnPer.value.toString(), mlWardBnPer.value.toString(), mlPostOfficeEnPer.value.toString(), mlPostOfficeBnPer.value.toString(),
+                mlDivisionEnPer.value.toString(), mlDivisionBnPer.value.toString(), mlDistrictEnPer.value.toString(), mlDistrictBnPer.value.toString(), mlSubDistrictEnPer.value.toString(), mlSubDistrictBnPer.value.toString(),
+                mlPhoneNumber.value.toString(), mlEmail.value.toString(), mlAttachmentEn.value.toString(), mlAttachmentBn.value.toString()
+            ).let{
+                when(it)
+                {
+                    is Resource.Success-> {
+                        it.value.let { response->
+                            _isRegistered.value = response
+                        }
+                    }
+                    is Resource.Failure->{
+                        _isRegistered.value = errorResponse(it)
+                        isNetworkError.value = it.isNetworkError
+                    }
+                }
+            }
+            isLoading.value = false
+        }
+    }
+
+    fun clearUserInfo()
+    {
+        mlIsSameAddress.value = ""
+        mlIdentityType.value = ""
+        mlHoldingNo.value = ""
+        mlHoldingType.value = ""
+        mlNidNo.value = ""
+        mlBirthRegNo.value = ""
+        mlPassportNo.value = ""
+        mlDob.value = ""
+        mlNameEn.value = ""
+        mlNameBn.value = ""
+        mlGender.value = ""
+        mlMaritalStatus.value = ""
+        mlFatherNameEn.value = ""
+        mlFatherNameBn.value = ""
+        mlMotherNameEn.value = ""
+        mlMotherNameBn.value = ""
+        mlOccupation.value = ""
+        mlEducation.value = ""
+        mlReligion.value = ""
+        mlLiveIn.value = ""
+        mlParaEnPre.value = ""
+        mlParaBnPre.value = ""
+        mlRoadEnPre.value = ""
+        mlRoadBnPre.value = ""
+        mlWardEnPre.value = ""
+        mlWardBnPre.value = ""
+        mlPostOfficeEnPre.value = ""
+        mlPostOfficeBnPre.value = ""
+        mlParaEnPer.value = ""
+        mlParaBnPer.value = ""
+        mlRoadEnPer.value = ""
+        mlRoadBnPer.value = ""
+        mlWardEnPer.value = ""
+        mlWardBnPer.value = ""
+        mlPostOfficeEnPer.value = ""
+        mlPostOfficeBnPer.value = ""
+        mlDivisionEnPre.value = ""
+        mlDivisionBnPre.value = ""
+        mlDistrictEnPre.value = ""
+        mlDistrictBnPre.value = ""
+        mlSubDistrictEnPre.value = ""
+        mlSubDistrictBnPre.value = ""
+        mlDivisionEnPer.value = ""
+        mlDivisionBnPer.value = ""
+        mlDistrictEnPer.value = ""
+        mlDistrictBnPer.value = ""
+        mlSubDistrictEnPer.value = ""
+        mlSubDistrictBnPer.value = ""
+        mlPhoneNumber.value = ""
+        mlEmail.value = ""
+        mlAttachmentEn.value = ""
+        mlAttachmentBn.value = ""
     }
 }
