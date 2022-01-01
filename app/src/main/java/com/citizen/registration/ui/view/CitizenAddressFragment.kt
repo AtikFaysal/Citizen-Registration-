@@ -61,9 +61,6 @@ class CitizenAddressFragment : BaseFragment<LayoutCitizenAddressBinding>()
     override val layoutId: Int
         get() = R.layout.layout_citizen_address
 
-    @Inject
-    lateinit var prefManager : SharedPreferenceManager
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = requireContext()

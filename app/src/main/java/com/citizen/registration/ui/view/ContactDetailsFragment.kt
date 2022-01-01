@@ -23,9 +23,6 @@ class ContactDetailsFragment: BaseFragment<LayoutContactDetailsBinding>()
     override val layoutId: Int
         get() = R.layout.layout_contact_details
 
-    @Inject
-    lateinit var prefManager : SharedPreferenceManager
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = requireContext()

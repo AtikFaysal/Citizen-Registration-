@@ -72,9 +72,6 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
     override val layoutId: Int
         get() = R.layout.layout_basic_info
 
-    @Inject
-    lateinit var prefManager : SharedPreferenceManager
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = requireContext()
@@ -119,10 +116,10 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
 
     override fun onClickListener() {
         binding.btnNext.setOnClickListener {
-            //if(onDataValidation())
-               // viewModel.checkDuplicateIdentity()
+            if(onDataValidation())
+                viewModel.checkDuplicateIdentity()
             //goToNextFragment(R.id.action_basicInfo_to_addressFragment, mRootView, null)
-            viewModel.citizenRegistration()
+            //viewModel.citizenRegistration()
         }
 
         binding.tvDob.setOnClickListener {

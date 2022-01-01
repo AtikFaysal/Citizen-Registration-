@@ -66,9 +66,6 @@ class PreviewDataFragment : BaseFragment<LayoutPreviewBinding>()
     override val layoutId: Int
         get() = R.layout.layout_preview
 
-    @Inject
-    lateinit var prefManager : SharedPreferenceManager
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = requireContext()
@@ -160,9 +157,10 @@ class PreviewDataFragment : BaseFragment<LayoutPreviewBinding>()
         viewModel.isRegistered.observe(viewLifecycleOwner, {
             when (it.responseCode) {
                 Constants.INSERT_SUCCESS_CODE -> {
-                    Navigation.findNavController(mRootView).popBackStack(R.id.action_basicInfo_to_addressFragment, true)
-                    Navigation.findNavController(mRootView).popBackStack(R.id.action_address_to_contactDetailsFragment, true)
-                    Navigation.findNavController(mRootView).popBackStack(R.id.action_contactDetailsFragment_to_previewDataFragment, true)
+                    Navigation.findNavController(mRootView).popBackStack(R.id.basicInfoFragment, true)
+                    Navigation.findNavController(mRootView).popBackStack(R.id.addressFragment, true)
+                    Navigation.findNavController(mRootView).popBackStack(R.id.contactDetailsFragment, true)
+                    Navigation.findNavController(mRootView).popBackStack(R.id.previewDataFragment, true)
                     mActivity.successToast(REGISTRATION_SUCCESS)
                 }
                 Constants.NETWORK_ERROR_CODE -> {
