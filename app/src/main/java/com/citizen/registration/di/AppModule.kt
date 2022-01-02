@@ -34,7 +34,7 @@ import javax.inject.Singleton
 class AppModule
 {
     @Provides
-    fun provideBaseUrl() = "http://app.azadulbari.tech/"//"https://citizen.fruitsbaazar.com/"//
+    fun provideBaseUrl() = "https://app.azadulbari.tech/"//"https://citizen.fruitsbaazar.com/"//
 
     @Provides
     @Singleton
