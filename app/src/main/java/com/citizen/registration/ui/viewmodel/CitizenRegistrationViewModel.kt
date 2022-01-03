@@ -149,7 +149,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         if(!mlOccupation.value.toString().anyInputValidation()) return FormErrors.INVALID_OCCUPATION
         if(!mlEducation.value.toString().anyInputValidation()) return FormErrors.INVALID_EDUCATION
         if(!mlReligion.value.toString().anyInputValidation()) return FormErrors.INVALID_RELIGION
-        if(!mlLiveIn.value.toString().anyInputValidation()) return FormErrors.INVALID_LIVE_IN
+        //if(!mlLiveIn.value.toString().anyInputValidation()) return FormErrors.INVALID_LIVE_IN
         if(!mlGender.value.toString().anyInputValidation()) return FormErrors.INVALID_GENDER
         if(!mlMaritalStatus.value.toString().anyInputValidation()) return FormErrors.INVALID_MARITAL_STATUS
 
@@ -386,7 +386,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         mlOccupation.value = ""
         mlEducation.value = ""
         mlReligion.value = ""
-        mlLiveIn.value = ""
+        //mlLiveIn.value = ""
         mlParaEnPre.value = ""
         mlParaBnPre.value = ""
         mlRoadEnPre.value = ""
