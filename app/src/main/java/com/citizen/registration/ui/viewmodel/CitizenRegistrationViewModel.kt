@@ -4,11 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.citizen.registration.core.BaseFragment.Companion.districtList
 import com.citizen.registration.core.BaseFragment.Companion.subDistrictList
+import com.citizen.registration.core.BaseFragment.Companion.suggestionList
 import com.citizen.registration.core.BaseViewModel
 import com.citizen.registration.data.model.DistrictModel
 import com.citizen.registration.data.model.HoldingTypeModel
 import com.citizen.registration.data.model.SubDistrictModel
 import com.citizen.registration.data.response.DefaultResponse
+import com.citizen.registration.database.room.entity.SuggestionEntity
+import com.citizen.registration.repository.SuggestionRepository
 import com.citizen.registration.repository.UserRepository
 import com.citizen.registration.utils.*
 import com.citizen.registration.utils.ExtraUtils.Companion.errorResponse
@@ -16,6 +19,8 @@ import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_
 import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_BN
 import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_BN_PERMANENT
 import com.citizen.registration.utils.constants.AppConstants.Companion.DISTRICT_SELECTION_PERMANENT
+import com.citizen.registration.utils.constants.AppConstants.Companion.PARA_SUGGESTION
+import com.citizen.registration.utils.constants.AppConstants.Companion.POST_OFFICE_SUGGESTION
 import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION
 import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION_BN
 import com.citizen.registration.utils.constants.AppConstants.Companion.SUB_DISTRICT_SELECTION_BN_PERMANENT
@@ -27,12 +32,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CitizenRegistrationViewModel @Inject constructor(private val repository : UserRepository) : BaseViewModel()
+class CitizenRegistrationViewModel @Inject constructor(private val repository : UserRepository, private val suggestionRepo : SuggestionRepository) : BaseViewModel()
 {
     companion object{
         var mlHoldingType = MutableLiveData<String>()
         var mlHoldingNo = MutableLiveData<String>()
-        var mlIdentityType = MutableLiveData<String>()
+        var mlIdentityType = MutableLiveData("")
         var mlNidNo = MutableLiveData<String>()
         var mlBirthRegNo = MutableLiveData<String>()
         var mlPassportNo = MutableLiveData<String>()
@@ -50,7 +55,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         var mlReligion = MutableLiveData<String>()
         var mlGender = MutableLiveData<String>()
         var mlMaritalStatus = MutableLiveData<String>()
-        var mlLiveIn = MutableLiveData<String>()
+        var mlLiveIn = MutableLiveData("স্থায়ী")
 
         var mlEmail = MutableLiveData<String>()
         var mlAttachmentEn = MutableLiveData<String>()
@@ -119,19 +124,23 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
 
     init {
         job = Job()
+
+        if(suggestionList.isEmpty())
+            getSuggestion()
     }
 
     fun basicInfoValidation() : FormErrors
     {
         if(!mlHoldingType.value.toString().anyInputValidation()) return FormErrors.INVALID_HOLDING_TYPE
         if(!mlHoldingNo.value.toString().anyInputValidation()) return FormErrors.INVALID_HOLDING_NO
-        if(!mlIdentityType.value.toString().anyInputValidation()) return FormErrors.INVALID_IDENTITY
-        else {
-            if(mlIdentityType.value.toString() == "1")
-                if(!mlNidNo.value.toString().anyInputValidation() || mlNidNo.value.toString().length < 10) return FormErrors.INVALID_NID_NO
-            else if(mlIdentityType.value.toString() == "2")
-                if(!mlBirthRegNo.value.toString().anyInputValidation() || mlBirthRegNo.value.toString().length < 10) return FormErrors.INVALID_BIRTH_REG_NO
-        }
+        if(!mlBirthRegNo.value.toString().anyInputValidation() || mlBirthRegNo.value.toString().length < 10) return FormErrors.INVALID_BIRTH_REG_NO
+//        if(!mlIdentityType.value.toString().anyInputValidation()) return FormErrors.INVALID_IDENTITY
+//        else {
+//            if(mlIdentityType.value.toString() == "1")
+//                if(!mlNidNo.value.toString().anyInputValidation() || mlNidNo.value.toString().length < 10) return FormErrors.INVALID_NID_NO
+//            else if(mlIdentityType.value.toString() == "2")
+//                if(!mlBirthRegNo.value.toString().anyInputValidation() || mlBirthRegNo.value.toString().length < 10) return FormErrors.INVALID_BIRTH_REG_NO
+//        }
         if(!mlDob.value.toString().anyInputValidation()) return FormErrors.INVALID_DOB
         if(!mlNameEn.value.toString().nameValidation()) return FormErrors.INVALID_NAME_EN
         if(!mlNameBn.value.toString().anyInputValidation()) return FormErrors.INVALID_NAME_BN
@@ -412,5 +421,38 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
         mlAttachmentBn.value = ""
         mlHusbandNameEn.value = ""
         mlHusbandNameBn.value = ""
+        suggestionList.clear()
+    }
+
+    fun suggestionData()
+    {
+        storeSuggestion(PARA_SUGGESTION, mlParaEnPer.value.toString())
+        storeSuggestion(PARA_SUGGESTION, mlParaEnPre.value.toString())
+        storeSuggestion(PARA_SUGGESTION, mlParaBnPre.value.toString())
+        storeSuggestion(PARA_SUGGESTION, mlParaBnPer.value.toString())
+
+        storeSuggestion(POST_OFFICE_SUGGESTION, mlPostOfficeEnPre.value.toString())
+        storeSuggestion(POST_OFFICE_SUGGESTION, mlPostOfficeEnPer.value.toString())
+        storeSuggestion(POST_OFFICE_SUGGESTION, mlPostOfficeBnPre.value.toString())
+        storeSuggestion(POST_OFFICE_SUGGESTION, mlPostOfficeBnPer.value.toString())
+    }
+
+    private fun storeSuggestion(type : Int, suggestion : String)
+    {
+        val suggestionEntity = SuggestionEntity(0,suggestion,type)
+        job = viewModelScope.launch {
+            suggestionRepo.suggestionEntry(suggestionEntity)
+        }
+    }
+
+    private fun getSuggestion()
+    {
+        job = viewModelScope.launch {
+            suggestionList.clear()
+            for(item in suggestionRepo.getSuggestion())
+            {
+                suggestionList.add(item.suggestion)
+            }
+        }
     }
 }

@@ -12,7 +12,6 @@ import com.citizen.registration.data.model.DistrictModel
 import com.citizen.registration.data.model.DivisionModel
 import com.citizen.registration.data.model.Items
 import com.citizen.registration.data.model.SubDistrictModel
-import com.citizen.registration.database.SharedPreferenceManager
 import com.citizen.registration.databinding.LayoutCitizenAddressBinding
 import com.citizen.registration.interfaces.ItemSelectionListener
 import com.citizen.registration.ui.viewmodel.CitizenRegistrationViewModel
@@ -50,7 +49,10 @@ import com.citizen.registration.utils.constants.ConstantItems.Companion.getEmpty
 import com.citizen.registration.utils.constants.ConstantItems.Companion.getEmptySubDistrict
 import com.citizen.registration.utils.constants.Constants.Companion.RESPONSE_SUCCESS_CODE
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import android.widget.ArrayAdapter
+
+
+
 
 @AndroidEntryPoint
 class CitizenAddressFragment : BaseFragment<LayoutCitizenAddressBinding>()
@@ -98,6 +100,18 @@ class CitizenAddressFragment : BaseFragment<LayoutCitizenAddressBinding>()
         mContext.selectItemFromSpinner(binding.spWardBn, ConstantItems.wardNoListBn, AppConstants.WARD_SELECTION_BN,onItemSelection)
         mContext.selectItemFromSpinner(binding.spWardEnPermanent, ConstantItems.wardNoListEn, AppConstants.WARD_SELECTION_PERMANENT,onItemSelection)
         mContext.selectItemFromSpinner(binding.spWardBnPermanent, ConstantItems.wardNoListBn, AppConstants.WARD_SELECTION_BN_PERMANENT,onItemSelection)
+
+        val adapter  = ArrayAdapter(mContext, android.R.layout.simple_list_item_1, suggestionList)
+
+        binding.etParaEn.setAdapter(adapter)
+        binding.etParaBn.setAdapter(adapter)
+        binding.etParaEnPermanent.setAdapter(adapter)
+        binding.etParaBnPermanent.setAdapter(adapter)
+
+        binding.etPostOfficeEn.setAdapter(adapter)
+        binding.etPostOfficeBn.setAdapter(adapter)
+        binding.etPostOfficeEnPermanent.setAdapter(adapter)
+        binding.etPostOfficeBnPermanent.setAdapter(adapter)
     }
 
     override fun onClickListener() {
@@ -109,7 +123,10 @@ class CitizenAddressFragment : BaseFragment<LayoutCitizenAddressBinding>()
 
         binding.btnNext.setOnClickListener {
             if(onDataValidation())
+            {
+                viewModel.suggestionData()
                 goToNextFragment(R.id.action_address_to_contactDetailsFragment, mRootView, null)
+            }
         }
     }
 

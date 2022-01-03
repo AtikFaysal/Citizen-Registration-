@@ -46,7 +46,7 @@
                         android:padding="@dimen/_5sdp"
                         style="@style/RobotoRegular"
                         android:textSize="@dimen/_14sdp"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:textColor="@color/text_color"
                         android:text="@={basic_info.Companion.mlHoldingNo}"
                         android:background="@drawable/bg_square"
@@ -82,15 +82,62 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/_30sdp"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/topMargin"
                     android:background="@drawable/bg_square"/>
+
+                <LinearLayout
+                    android:id="@+id/ln_birth_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/birth_reg_no_title"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_birth_reg_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:maxLength="17"
+                        android:text="@={basic_info.Companion.mlBirthRegNo}"
+                        android:textSize="@dimen/_14sdp"
+                        android:inputType="number"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/birth_reg_no"/>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_valid"
+                    style="@style/RobotoMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_3sdp"
+                    android:text="@string/valid"
+                    android:textColor="@color/red"
+                    android:visibility="gone"
+                    android:layout_gravity="end"
+                    android:textSize="@dimen/_12sdp" />
 
                 <LinearLayout
                     android:id="@+id/ln_nid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone"
                     android:layout_marginTop="@dimen/_5sdp">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -99,8 +146,6 @@
                         android:textColor="@color/green_A400"
                         style="@style/RobotoLight"
                         android:textSize="@dimen/_14sdp"
-                        android:drawableEnd="@drawable/ic_required"
-                        android:drawablePadding="@dimen/_5sdp"
                         android:text="@string/nid_title"/>
 
                     <RelativeLayout
@@ -141,52 +186,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/ln_birth_reg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    android:layout_marginTop="@dimen/_5sdp">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/green_A400"
-                        style="@style/RobotoRegular"
-                        android:textSize="@dimen/_14sdp"
-                        android:text="@string/birth_reg_no_title"/>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_birth_reg_no"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/_5sdp"
-                        style="@style/RobotoRegular"
-                        android:maxLength="17"
-                        android:text="@={basic_info.Companion.mlBirthRegNo}"
-                        android:textSize="@dimen/_14sdp"
-                        android:inputType="number"
-                        android:textColor="@color/text_color"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/bg_square"
-                        android:hint="@string/birth_reg_no"/>
-
-                </LinearLayout>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_valid"
-                    style="@style/RobotoMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/_3sdp"
-                    android:text="@string/valid"
-                    android:textColor="@color/red"
-                    android:visibility="gone"
-                    android:layout_gravity="end"
-                    android:textSize="@dimen/_12sdp" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -202,6 +201,7 @@
                     android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/_5sdp">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -233,8 +233,7 @@
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginStart="@dimen/_5sdp">
+                    android:layout_marginTop="@dimen/_5sdp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
@@ -649,6 +648,21 @@
                         android:minHeight="@dimen/_30sdp"
                         android:background="@drawable/bg_square"/>
 
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_occupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/text_color"
+                        android:inputType="textPersonName|textCapWords"
+                        android:visibility="gone"
+                        android:text="@={basic_info.Companion.mlOccupation}"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/occupation"/>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -674,6 +688,22 @@
                         android:layout_height="wrap_content"
                         android:minHeight="@dimen/_30sdp"
                         android:background="@drawable/bg_square"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_education"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        style="@style/RobotoRegular"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/text_color"
+                        android:inputType="textPersonName|textCapWords"
+                        android:visibility="gone"
+                        android:text="@={basic_info.Companion.mlEducation}"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/bg_square"
+                        android:hint="@string/education"/>
+
 
                 </LinearLayout>
 

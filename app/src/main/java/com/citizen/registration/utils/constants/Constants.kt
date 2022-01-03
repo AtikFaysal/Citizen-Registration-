@@ -9,6 +9,7 @@ class Constants
 {
     companion object{
         const val PREF_NAME = "AmiBachelorPrefInfo"
+        const val APP_DB = "app_db"
 
         // server response codes
         const val RESPONSE_SUCCESS_CODE = 200 // success code

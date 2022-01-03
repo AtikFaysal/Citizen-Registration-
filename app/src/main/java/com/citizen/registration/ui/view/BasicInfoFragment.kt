@@ -124,10 +124,6 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
         binding.tvDob.setOnClickListener {
             mActivity.pickPreviousDate(binding.tvDob)
         }
-
-        binding.tvScan.setOnClickListener {
-
-        }
     }
 
     private fun onDataChanged()
@@ -163,14 +159,14 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
             visibleHusbandNameField()
         })
 
-        mlNidNo.observe(viewLifecycleOwner,{
-            if(it.length >= 10)
-                viewModel.checkDuplicateIdentity()
-            else {
-                binding.tvValid.visibility = GONE
-                isIdentityNoValid = false
-            }
-        })
+//        mlNidNo.observe(viewLifecycleOwner,{
+//            if(it.length >= 10)
+//                viewModel.checkDuplicateIdentity()
+//            else {
+//                binding.tvValid.visibility = GONE
+//                isIdentityNoValid = false
+//            }
+//        })
 
         mlBirthRegNo.observe(viewLifecycleOwner,{
             if(it.length >= 10)
@@ -344,8 +340,30 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
                     GENDER_SELECTION-> mlGender.value = item as String
                     HOLDING_SELECTION-> mlHoldingType.value = item as String
                     NID_OR_BIRTH_SELECTION-> mlIdentityType.value = (item as Items).id
-                    OCCUPATION_SELECTION-> mlOccupation.value = (item as Items).title
-                    EDUCATION_SELECTION-> mlEducation.value = (item as Items).title
+                    OCCUPATION_SELECTION-> {
+                        val data = (item as Items).title
+                        if(data == "অন্যান্য")
+                        {
+                            mlOccupation.value = ""
+                            binding.etOccupation.visibility = VISIBLE
+                        }
+                        else {
+                            binding.etOccupation.visibility = GONE
+                            mlOccupation.value = data
+                        }
+                    }
+                    EDUCATION_SELECTION-> {
+                        val data = (item as Items).title
+                        if(data == "অন্যান্য")
+                        {
+                            mlEducation.value = ""
+                            binding.etEducation.visibility = VISIBLE
+                        }
+                        else {
+                            binding.etEducation.visibility = GONE
+                            mlEducation.value = data
+                        }
+                    }
                     RELIGION_SELECTION-> mlReligion.value = (item as Items).title
                     LIVE_IN_SELECTION-> mlLiveIn.value = (item as Items).title
                     MARITAL_STATUS_SELECTION-> mlMaritalStatus.value = (item as Items).title

@@ -51,6 +51,8 @@ class AppConstants
         const val DISTRICT_SELECTION_BN_PERMANENT = 1021
         const val SUB_DISTRICT_SELECTION_BN_PERMANENT = 1022
         const val WARD_SELECTION_BN_PERMANENT = 1023
+        const val PARA_SUGGESTION = 1024
+        const val POST_OFFICE_SUGGESTION = 1025
 
         //=================================== Intents Key title ========================
         const val phoneNumber: String = "phoneNumber"

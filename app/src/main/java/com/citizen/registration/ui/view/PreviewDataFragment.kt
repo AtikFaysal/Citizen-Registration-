@@ -48,7 +48,6 @@ import com.citizen.registration.utils.*
 import com.citizen.registration.utils.ErrorMessage.Companion.REGISTRATION_SUCCESS
 import com.citizen.registration.utils.constants.Constants
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 /**
  * @author Atik Faysal(Android Developer)

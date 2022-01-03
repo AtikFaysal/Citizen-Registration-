@@ -20,6 +20,7 @@ import com.citizen.registration.data.model.DistrictModel
 import com.citizen.registration.data.model.DivisionModel
 import com.citizen.registration.data.model.HoldingTypeModel
 import com.citizen.registration.data.model.SubDistrictModel
+import com.citizen.registration.database.room.entity.SuggestionEntity
 import com.citizen.registration.interfaces.InitialComponent
 import com.citizen.registration.utils.LoadingUtils
 import com.google.android.material.snackbar.Snackbar
@@ -36,6 +37,7 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() , InitialComponent
         var subDistrictList = ArrayList<SubDistrictModel>()
         var districtList = ArrayList<DistrictModel>()
         var divisionList = ArrayList<DivisionModel>()
+        var suggestionList = ArrayList<String>()
     }
 
     protected lateinit var loadingDialog : AlertDialog

@@ -44,9 +44,9 @@ class ConstantItems
         )
 
         val liveInType = listOf(
-            Items("0", chooseItem),
+            //Items("0", chooseItem),
             Items("1", "স্থায়ী"),
-            Items("2", "অস্থায়ী"),
+            //Items("2", "অস্থায়ী"),
         )
 
         val occupationList = listOf(
@@ -56,6 +56,7 @@ class ConstantItems
             Items("1", "ডাক্তার"),
             Items("2", "ইঞ্জিনিয়ার"),
             Items("3", "ছাত্র"),
+            Items("10", "ছাত্রী"),
             Items("4", "কৃষক"),
             Items("5", "শ্রমিক"),
             Items("6", "চাকুরিজীবী"),
