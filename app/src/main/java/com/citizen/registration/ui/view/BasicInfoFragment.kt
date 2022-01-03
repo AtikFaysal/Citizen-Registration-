@@ -1,7 +1,6 @@
 package com.citizen.registration.ui.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -85,7 +84,6 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
         binding.basicInfo = viewModel
         init()
         onNidDuplicateObserver()
-        onCitizenRegistration()
         onDataChanged()
         onClickListener()
         holdingTypeObserver()
@@ -371,22 +369,5 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
                 }
             }
         }
-    }
-
-    private fun onCitizenRegistration()
-    {
-        viewModel.isRegistered.observe(viewLifecycleOwner, {
-            Log.d("responseCode", "${it.responseCode}")
-            when (it.responseCode) {
-                Constants.INSERT_SUCCESS_CODE -> {
-                    mActivity.successToast("Success")
-                }
-                Constants.NETWORK_ERROR_CODE -> {
-                    handleNetworkError(mContext) { viewModel.citizenRegistration() }
-                }
-
-                else -> mActivity.warningToast(ErrorMessage.REGISTRATION_FAILED)
-            }
-        })
     }
 }

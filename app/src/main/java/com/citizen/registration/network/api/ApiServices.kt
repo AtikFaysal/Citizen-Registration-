@@ -29,6 +29,11 @@ interface ApiServices
         @Query("nid") nid : String
     ): DefaultResponse
 
+    @GET("api/check-phone-use-limit/{phone}")
+    suspend fun checkPhoneNumberUseLimit(
+        @Path("phone") phone : String
+    ): DefaultResponse
+
     @GET("api/get-location-data")
     suspend fun getPlaceInfo(): DefaultResponse
 

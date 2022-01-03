@@ -1,5 +1,6 @@
 package com.citizen.registration.repository
 
+import android.util.Log
 import com.citizen.registration.interfaces.SafeApiCall
 import com.citizen.registration.network.api.ApiHelper
 import javax.inject.Inject
@@ -23,8 +24,13 @@ class UserRepository @Inject constructor(private val apiHelper : ApiHelper) : Sa
         apiHelper.getHoldingType()
     }
 
-    suspend fun checkDuplicateIdentity(identityNo : String) = safeApiCall {
-        apiHelper.checkDuplicateIdentity(identityNo)
+    suspend fun checkDuplicateIdentity(phone : String) = safeApiCall {
+        Log.d("phone", phone)
+        apiHelper.checkDuplicateIdentity(phone)
+    }
+
+    suspend fun checkPhoneNumberUseLimit(phone : String) = safeApiCall {
+        apiHelper.checkPhoneNumberUseLimit(phone)
     }
 
     suspend fun getPlaceInfo() = safeApiCall {

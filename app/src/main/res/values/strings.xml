@@ -15,6 +15,7 @@
     <!--    TextView hint text  -->
     <string name="not_valid">পূর্বেই নিবন্ধিত হয়েছে</string>
     <string name="valid">সঠিক</string>
+    <string name="limit_over">ইতিমধ্যে নাম্বারটি ব্যাবহার লিমিট শেষ। অন্য নাম্বার চেষ্টা করুন।</string>
 
     <string name="phone_number">মোবাইল নম্বর</string>
     <string name="email">ই-মেইল</string>

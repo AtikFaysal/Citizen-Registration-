@@ -122,6 +122,9 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
     private var _isRegistered = SingleLiveEvent<DefaultResponse>()
     val isRegistered : SingleLiveEvent<DefaultResponse> get() = _isRegistered
 
+    private var _isLimitOver = SingleLiveEvent<DefaultResponse>()
+    val isLimitOver : SingleLiveEvent<DefaultResponse> get() = _isLimitOver
+
     init {
         job = Job()
 
@@ -452,6 +455,26 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
             for(item in suggestionRepo.getSuggestion())
             {
                 suggestionList.add(item.suggestion)
+            }
+        }
+    }
+
+    fun checkPhoneNumberUseLimit()
+    {
+        job = viewModelScope.launch {
+            repository.checkPhoneNumberUseLimit(mlPhoneNumber.value.toString()).let{
+                when(it)
+                {
+                    is Resource.Success-> {
+                        it.value.let { response->
+                            _isLimitOver.value = response
+                        }
+                    }
+                    is Resource.Failure->{
+                        _isLimitOver.value = errorResponse(it)
+                        isNetworkError.value = it.isNetworkError
+                    }
+                }
             }
         }
     }

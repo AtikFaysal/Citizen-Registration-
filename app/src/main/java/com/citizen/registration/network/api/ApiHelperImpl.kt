@@ -19,6 +19,8 @@ class ApiHelperImpl @Inject constructor(private val apiServices : ApiServices) :
 
     override suspend fun checkDuplicateIdentity(identityNo: String): DefaultResponse = apiServices.checkDuplicateIdentity(identityNo)
 
+    override suspend fun checkPhoneNumberUseLimit(phone: String): DefaultResponse = apiServices.checkPhoneNumberUseLimit(phone)
+
     override suspend fun getPlaceInfo(): DefaultResponse = apiServices.getPlaceInfo()
 
     override suspend fun citizenRegistration(

@@ -55,6 +55,19 @@
                         android:background="@drawable/bg_square"
                         android:hint="@string/phone_number"/>
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_valid"
+                        style="@style/RobotoMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_3sdp"
+                        android:text="@string/limit_over"
+                        android:textColor="@color/red"
+                        android:visibility="gone"
+                        android:layout_gravity="end"
+                        android:textSize="@dimen/_10sdp" />
+
                 </LinearLayout>
 
                 <LinearLayout

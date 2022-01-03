@@ -19,6 +19,8 @@ interface ApiHelper
 
     suspend fun checkDuplicateIdentity(identityNo : String): DefaultResponse
 
+    suspend fun checkPhoneNumberUseLimit(phone : String): DefaultResponse
+
     suspend fun getPlaceInfo(): DefaultResponse
 
     suspend fun citizenRegistration(
