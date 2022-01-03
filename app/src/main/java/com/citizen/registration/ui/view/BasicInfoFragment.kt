@@ -134,6 +134,7 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
         })
 
         mlIdentityType.observe(viewLifecycleOwner,{
+            //Log.d("identityType", it)
             if(it == "1")
             {
                 binding.lnNid.visibility = VISIBLE
@@ -159,14 +160,14 @@ class BasicInfoFragment : BaseFragment<LayoutBasicInfoBinding>()
             visibleHusbandNameField()
         })
 
-//        mlNidNo.observe(viewLifecycleOwner,{
-//            if(it.length >= 10)
-//                viewModel.checkDuplicateIdentity()
-//            else {
-//                binding.tvValid.visibility = GONE
-//                isIdentityNoValid = false
-//            }
-//        })
+        mlNidNo.observe(viewLifecycleOwner,{
+            if(it.length >= 10)
+                viewModel.checkDuplicateIdentity()
+            else {
+                binding.tvValid.visibility = GONE
+                isIdentityNoValid = false
+            }
+        })
 
         mlBirthRegNo.observe(viewLifecycleOwner,{
             if(it.length >= 10)

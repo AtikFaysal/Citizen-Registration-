@@ -82,14 +82,70 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/_30sdp"
-                    android:visibility="gone"
                     android:layout_marginTop="@dimen/topMargin"
                     android:background="@drawable/bg_square"/>
+
+                <LinearLayout
+                    android:id="@+id/ln_nid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_A400"
+                        style="@style/RobotoLight"
+                        android:textSize="@dimen/_14sdp"
+                        android:drawableEnd="@drawable/ic_required"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/nid_title"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_nid_no"
+                            style="@style/RobotoRegular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_toStartOf="@+id/tv_scan"
+                            android:background="@drawable/bg_square"
+                            android:hint="@string/nid"
+                            android:inputType="number"
+                            android:maxLength="17"
+                            android:padding="@dimen/_5sdp"
+                            android:text="@={basic_info.Companion.mlNidNo}"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_scan"
+                            style="@style/RobotoMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/_3sdp"
+                            android:visibility="gone"
+                            android:text="@string/btn_scan"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ln_birth_reg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="vertical"
                     android:layout_marginTop="@dimen/_5sdp">
 
@@ -132,59 +188,6 @@
                     android:visibility="gone"
                     android:layout_gravity="end"
                     android:textSize="@dimen/_12sdp" />
-
-                <LinearLayout
-                    android:id="@+id/ln_nid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="@dimen/_5sdp">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/green_A400"
-                        style="@style/RobotoLight"
-                        android:textSize="@dimen/_14sdp"
-                        android:text="@string/nid_title"/>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/et_nid_no"
-                            style="@style/RobotoRegular"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_toStartOf="@+id/tv_scan"
-                            android:background="@drawable/bg_square"
-                            android:hint="@string/nid"
-                            android:inputType="number"
-                            android:maxLength="17"
-                            android:padding="@dimen/_5sdp"
-                            android:text="@={basic_info.Companion.mlNidNo}"
-                            android:textColor="@color/text_color"
-                            android:textSize="@dimen/_14sdp" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/tv_scan"
-                            style="@style/RobotoMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/_3sdp"
-                            android:visibility="gone"
-                            android:text="@string/btn_scan"
-                            android:textColor="@color/red"
-                            android:textSize="@dimen/_12sdp" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
 
             </LinearLayout>
 

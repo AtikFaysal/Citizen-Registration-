@@ -15,6 +15,8 @@ class DefaultResponse
     @SerializedName("today") lateinit var today : String
     @SerializedName("last_seven") lateinit var lastWeek : String
     @SerializedName("total") lateinit var total : String
+    @SerializedName("is_nid") lateinit var isNidValid : String
+    @SerializedName("is_birth") lateinit var isBirthValid : String
     @SerializedName("data") var data : DataModel?= DataModel()
     @SerializedName("holding_list") var holdingList = ArrayList<HoldingTypeModel>()
     @SerializedName("upazilas") var subDistrictList = ArrayList<SubDistrictModel>()

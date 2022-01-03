@@ -37,7 +37,7 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
     companion object{
         var mlHoldingType = MutableLiveData<String>()
         var mlHoldingNo = MutableLiveData<String>()
-        var mlIdentityType = MutableLiveData("")
+        var mlIdentityType = MutableLiveData<String>()
         var mlNidNo = MutableLiveData<String>()
         var mlBirthRegNo = MutableLiveData<String>()
         var mlPassportNo = MutableLiveData<String>()
@@ -133,14 +133,14 @@ class CitizenRegistrationViewModel @Inject constructor(private val repository : 
     {
         if(!mlHoldingType.value.toString().anyInputValidation()) return FormErrors.INVALID_HOLDING_TYPE
         if(!mlHoldingNo.value.toString().anyInputValidation()) return FormErrors.INVALID_HOLDING_NO
-        if(!mlBirthRegNo.value.toString().anyInputValidation() || mlBirthRegNo.value.toString().length < 10) return FormErrors.INVALID_BIRTH_REG_NO
-//        if(!mlIdentityType.value.toString().anyInputValidation()) return FormErrors.INVALID_IDENTITY
-//        else {
-//            if(mlIdentityType.value.toString() == "1")
-//                if(!mlNidNo.value.toString().anyInputValidation() || mlNidNo.value.toString().length < 10) return FormErrors.INVALID_NID_NO
-//            else if(mlIdentityType.value.toString() == "2")
-//                if(!mlBirthRegNo.value.toString().anyInputValidation() || mlBirthRegNo.value.toString().length < 10) return FormErrors.INVALID_BIRTH_REG_NO
-//        }
+        //if(!mlBirthRegNo.value.toString().anyInputValidation() || mlBirthRegNo.value.toString().length < 10) return FormErrors.INVALID_BIRTH_REG_NO
+        if(!mlIdentityType.value.toString().anyInputValidation()) return FormErrors.INVALID_IDENTITY
+        else {
+            if(mlIdentityType.value.toString() == "1")
+                if(!mlNidNo.value.toString().anyInputValidation() || mlNidNo.value.toString().length < 10) return FormErrors.INVALID_NID_NO
+            else if(mlIdentityType.value.toString() == "2")
+                if(!mlBirthRegNo.value.toString().anyInputValidation() || mlBirthRegNo.value.toString().length < 10) return FormErrors.INVALID_BIRTH_REG_NO
+        }
         if(!mlDob.value.toString().anyInputValidation()) return FormErrors.INVALID_DOB
         if(!mlNameEn.value.toString().nameValidation()) return FormErrors.INVALID_NAME_EN
         if(!mlNameBn.value.toString().anyInputValidation()) return FormErrors.INVALID_NAME_BN
