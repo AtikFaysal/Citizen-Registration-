@@ -10,6 +10,8 @@ class AppConstants
     companion object{
         const val chooseItem = "চিহ্নিত করুন"
 
+        const val MAXIMUM_IMAGE_SIZE = 500f
+
         //============================= DATE TIME FORMAT ============================
         const val YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss"
         const val YYYY_MMM_DD_HH_MM_AA = "yyyy-MMM-dd hh:mm a"

@@ -21,9 +21,10 @@ fun Context.isCallPhonePermissionGranted() = ContextCompat.checkSelfPermission(t
  * ...return true while permission is granted
  * ...otherwise return false
  */
-fun Context.isStorageReadWritePermissionGranted() = (
+fun Context.isImageCapturePermissionGranted() = (
         ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
 
 /**
  * -------- Phone call -----------
@@ -42,10 +43,10 @@ fun Activity.requestForPhoneCallPermission(permissionListener : PermissionListen
  * -------- READ EXTERNAL STORAGE -----------
  *  Request for read and write external storage permission to pick images from gallery
  */
-fun Activity.requestForReadWriteExternalStoragePermission(permissionListener : MultiplePermissionsListener)
+fun Activity.requesftForCaptureImage(permissionListener : MultiplePermissionsListener)
 {
     Dexter.withActivity(this)
-        .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE,)
+        .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
         .withListener(permissionListener)
         .withErrorListener { error -> this.errorToast(error.toString()) }
         .check()
