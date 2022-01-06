@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "148074843953",
+    "project_id": "citizen-4d327",
+    "storage_bucket": "citizen-4d327.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148074843953:android:2b29abdb2c6e711a842a10",
+        "android_client_info": {
+          "package_name": "com.citizen.registration"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148074843953-qp1su4nsp5geb48fohdid1v89i747u25.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.citizen.registration",
+            "certificate_hash": "44f78af742ef3e22a32e018438ce4afca69a3734"
+          }
+        },
+        {
+          "client_id": "148074843953-i35a5v2s3t83a42vvohm2qbe748r25gj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbYZgSchF8xWWAEiIX-a20UXUJ3vwQL0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148074843953-i35a5v2s3t83a42vvohm2qbe748r25gj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -45,8 +45,7 @@ class ImageUtils
                     if (report.areAllPermissionsGranted())
                     {
                         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                        //startActivityForResult(activity,cameraIntent,100,null)
-                        startActivityForResult(activity, cameraIntent,100,null )
+                        activity.startActivityForResult( cameraIntent,100 )
                     } else activity.warningToast("You need to allow all permission")
                 }
 

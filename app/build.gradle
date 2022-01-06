@@ -140,9 +140,10 @@ dependencies {
     implementation 'com.kaopiz:kprogresshud:1.0.2'//progress dialog loading
     implementation 'com.intuit.sdp:sdp-android:1.0.6'//size
 
-    // Text features
-    implementation 'com.google.android.gms:play-services-mlkit-text-recognition:17.0.1'
-    implementation 'com.google.android.gms:play-services-vision:20.1.3'
-    // Language Identification
-    implementation 'com.google.mlkit:language-id:17.0.2'
+
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.firebase:firebase-ml-vision'
+
+    implementation 'org.jetbrains.anko:anko-commons:0.10.5'
 }
+apply plugin: 'com.google.gms.google-services'

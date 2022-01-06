@@ -23,6 +23,7 @@
     <string name="attachment_bn">সংযুক্তি যদি থাকে(বাংলায়)</string>
     <string name="attachment_hint_en">Example: Freedom Fighter children, widows, tribal\'s …etc</string>
     <string name="attachment_hint_bn">উদাহরণঃ মুক্তিযোদ্ধা সন্তান, বিধবা, উপজাতি…ইত্যাদি</string>
+    <string name="nid_scan">আপনার জাতীয় পরিচয়পত্রের পিছনের অংশটি ক্যামেরার সাহায্যে স্ক্যান করুন।</string>
     <string name="password">পাসওয়ার্ড</string>
     <string name="country_code">(+880)</string>
     <string name="today">আজকে</string>
